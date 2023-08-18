@@ -13,7 +13,7 @@ The code example has two typos:
 
 The code example should be as follows:
 
-```
+```puppet
 user { 'exampleapp':
   uid => '1234',
   gid => '123',
