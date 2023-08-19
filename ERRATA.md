@@ -2,14 +2,14 @@
 
 Entries with :notebook: are my opinion.
 
-#### Page 39:
+#### Page 6:
 
 The code example has two typos:
 
 * Line 1: `user { 'david'` should instead be `user { 'david':`
 * Line 2: `uid => '123'` should instead be `uid => '123',`
 
-#### Page 41:
+#### Pages 7-8:
 
 The code example should be as follows:
 
@@ -35,25 +35,35 @@ file { '/etc/exampleapp/':
 }
 ```
 
-#### Page 44:
+#### Page 10:
 
-The sentence ending "modules provide sharable and reusable single-use technical installations." should probably read "modules provide sharable and reusable single-use technical implementations."
+The sentence ending,
 
-#### Page 45:
+> ... modules provide sharable and reusable single-use technical installations.
+
+should probably read,
+
+> ... modules provide sharable and reusable single-use technical implementations.
+
+#### Page 11:
 
 The code examples have one typo each:
 
-`profile::os_security:email_enabled: true` should instead be:
-`profile::os_security::email_enabled: true`
+`profile::os_security:email_enabled: true` should instead be: `profile::os_security::email_enabled: true`
 
-`profile::exampleapp:uid: '1235'` should instead be:
-`profile::exampleapp::uid: '1235'`
+`profile::exampleapp:uid: '1235'` should instead be: `profile::exampleapp::uid: '1235'`
 
 :notebook: Reader's comment for page 45:
 
-The sentence, "One of the most important points of creating these patterns is to avoid hardcoded values in your modules." conflicts somewhat with the sentence from chapter 9, "The first key thing is if the data doesn't vary over nodes and it's only used once, the simplest thing is to hardcode the data in Puppet code ..."
+The sentence,
 
-#### Page 50:
+> One of the most important points of creating these patterns is to avoid hardcoded values in your modules.
+
+conflicts somewhat with the sentence from chapter 9,
+
+> The first key thing is if the data doesn't vary over nodes and it's only used once, the simplest thing is to hardcode the data in Puppet code ...
+
+#### Page 15:
 
 The code example has two typos:
 
@@ -61,13 +71,19 @@ The code example has two typos:
 
 :notebook: Reader's comment for page 50:
 
-The sentence, "Normally, this means a minimum of a development environment and a production environment. So, changes can be tested against servers in development, and then successfully tested ones can be deployed to production." should instead be, "Normally, this means a minimum of a development environment and a production environment so changes can be tested against servers in development and then successfully tested ones can be deployed to production."
+The sentence,
+
+> Normally, this means a minimum of a development environment and a production environment. So, changes can be tested against servers in development, and then successfully tested ones can be deployed to production.
+
+should instead be,
+
+> Normally, this means a minimum of a development environment and a production environment so changes can be tested against servers in development and then successfully tested ones can be deployed to production.
 
 :notebook: Reader's comment for page 53:
 
 The reference to the latest version of Puppet should be changed from 7 to 8. All installation URIs appear to use Puppet 8 even though the Azure lab installs Puppet 7.
 
-#### Page 56:
+#### Page 20:
 
 The bullet point:
 
@@ -79,13 +95,15 @@ Should instead be:
 
 The final bullet point for Visual Studio Code extensions references an application unrelated to VSCode: `pecdm`. The bullet point should be shifted left to align with "The GitHub CLI" etc.
 
-#### Page 61:
+#### Page 24:
 
 "Augeas" is misspelled in the sentence:
 
 > "Augeuas is very advanced but often over-complicated ..."
 
-:notebook: Reader's comment for pages 62-63:
+The URL for `https://validate.puppet.com/` is not valid. No such website exists. This is referenced on pages 24, 40, 131, and 143.
+
+:notebook: Reader's comment for page 24-25:
 
 The ending of the following sentence lacks a proper subject for what to develop and what to integrate with: 
 
@@ -95,7 +113,7 @@ The sentence,
 
 > This is certainly not the only way to develop Puppet code, and your organization might require the usage of different tools deponding on the environment.
 
-Can be written,
+can be written,
 
 > This is certainly not the only way to develop Puppet code and your organization might require using different tools, depending on the environment.
 
@@ -111,25 +129,21 @@ can be simplified (and the typo "unecessary" corrected) to,
 
 > ... to avoid paying for unnecessary virtual machine time on Azure.
 
-#### Page 63:
-
-The URL for `https://validate.puppet.com/` is not valid. No such website exists. This is referenced on pages 63, 86, 207, and 224.
-
-:notebook: Reader's comment for page 66:
+:notebook: Reader's comment for page 26:
 
 References to 'Yum' or 'yum' should be replaced with 'dnf' as Red Hat Enterprise Linux 8+ (and related distributions) use 'dnf' by default. This is also true of the package provider for these distributions.
 
-#### Page 69:
+#### Page 29:
 
 The code example has one typo:
 
 * Line 1: `mkdir ~workspace/pecdm` should instead be `mkdir -p ~workspace/pecdm`
 
-:notebook: Reader's comment for page 69:
+:notebook: Reader's comment for page 29:
 
 `~workspace` should be `~/workspace`. Example: `mkdir -p ~/workspace/pecdm`
 
-#### Page 73:
+#### Page 31:
 
 This sentence needs a space after the first comma:
 
@@ -155,7 +169,7 @@ Should instead be,
 
 In the paragraph that begins, "The key difference is that" the two words "self paced" should be hyphenated as "self-paced"
 
-:notebook: Reader's comment for page 74:
+:notebook: Reader's comment for page 32:
 
 The paragraph beginning,
 
@@ -164,3 +178,14 @@ The paragraph beginning,
 Can be simplified to,
 
 > This section is not an exhaustive ...
+
+#### Page 33:
+
+Change the period between these sentences to a dash:
+
+> ... and by looking at three of the most common resource types – packages, files, and services. You will see how to find out the attributes that are available to a resource and how to declare a state.
+
+can be written as,
+
+> ... and by looking at three of the most common resource types – packages, files, and services – you will see how to find out the attributes that are available to a resource and how to declare a state.
+
