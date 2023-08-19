@@ -1,15 +1,15 @@
-## Errata
+# Errata
 
 Entries with :notebook: are my opinion.
 
-#### Page 6:
+#### Page 6
 
 The code example has two typos:
 
 * Line 1: `user { 'david'` should instead be `user { 'david':`
 * Line 2: `uid => '123'` should instead be `uid => '123',`
 
-#### Pages 7-8:
+#### Pages 7-8
 
 The code example should be as follows:
 
@@ -35,7 +35,7 @@ file { '/etc/exampleapp/':
 }
 ```
 
-#### Page 10:
+#### Page 10
 
 The sentence ending,
 
@@ -45,7 +45,7 @@ should probably read,
 
 > ... modules provide sharable and reusable single-use technical implementations.
 
-#### Page 11:
+#### Page 11
 
 The code examples have one typo each:
 
@@ -63,7 +63,7 @@ conflicts somewhat with the sentence from chapter 9,
 
 > The first key thing is if the data doesn't vary over nodes and it's only used once, the simplest thing is to hardcode the data in Puppet code ...
 
-#### Page 15:
+#### Page 15
 
 The code example has two typos:
 
@@ -83,11 +83,11 @@ should instead be,
 
 The reference to the latest version of Puppet should be changed from 7 to 8. All installation URIs appear to use Puppet 8 even though the Azure lab installs Puppet 7.
 
-#### Page 20:
+#### Page 20
 
 The bullet point:
 
-* A Linux environment using package managers such as apt for Ubuntu or RHEL-based using Yum. 
+* A Linux environment using package managers such as apt for Ubuntu or RHEL-based using Yum.
 
 Should instead be:
 
@@ -95,17 +95,17 @@ Should instead be:
 
 The final bullet point for Visual Studio Code extensions references an application unrelated to VSCode: `pecdm`. The bullet point should be shifted left to align with "The GitHub CLI" etc.
 
-#### Page 24:
+#### Page 24
 
 "Augeas" is misspelled in the sentence:
 
 > "Augeuas is very advanced but often over-complicated ..."
 
-The URL for `https://validate.puppet.com/` is not valid. No such website exists. This is referenced on pages 24, 40, 131, and 143.
+The URL <https://validate.puppet.com/> is not valid. No such website exists. This is referenced on pages 24, 40, 131, and 143.
 
-:notebook: Reader's comment for page 24-25:
+:notebook: Reader's comments for pages 24-25:
 
-The ending of the following sentence lacks a proper subject for what to develop and what to integrate with: 
+The ending of the following sentence lacks a proper subject for what to develop and what to integrate with:
 
 > One of the greatest issues with early Puppet development was the lack of a consensus around how to develop and a lack of integration.
 
@@ -133,7 +133,7 @@ can be simplified (and the typo "unecessary" corrected) to,
 
 References to 'Yum' or 'yum' should be replaced with 'dnf' as Red Hat Enterprise Linux 8+ (and related distributions) use 'dnf' by default. This is also true of the package provider for these distributions.
 
-#### Page 29:
+#### Page 29
 
 The code example has one typo:
 
@@ -143,15 +143,15 @@ The code example has one typo:
 
 `~workspace` should be `~/workspace`. Example: `mkdir -p ~/workspace/pecdm`
 
-#### Page 31:
+#### Page 31
 
 This sentence needs a space after the first comma:
 
-> Puppet has its own learning site (https://training.puppet.com/learn),this ...
+> Puppet has its own learning site (<https://training.puppet.com/learn>),this ...
 
 It should be:
 
-> Puppet has its own learning site (https://training.puppet.com/learn), this ...
+> Puppet has its own learning site (<https://training.puppet.com/learn>), this ...
 
 The sentence,
 
@@ -179,7 +179,7 @@ Can be simplified to,
 
 > This section is not an exhaustive ...
 
-#### Page 33:
+#### Page 33
 
 Change the period between these sentences to a dash:
 
@@ -189,3 +189,71 @@ can be written as,
 
 > ... and by looking at three of the most common resource types – packages, files, and services – you will see how to find out the attributes that are available to a resource and how to declare a state.
 
+#### Page 36
+
+The class resource declaration has one typo:
+
+* Line 2: `paramter1 => 'value1',` should instead be: `parameter1 => 'value1',`
+
+:notebook: Reader's comment for page 36:
+
+The bulleted list for the defined type declaration differs from the class declaration from the previous page. Suggestion: do not parenthetically identify the opening and closing elements.
+
+Example:
+
+* The `define` keyword
+* The name of the defined type
+* Parameters within ()
+* Type definition code within {}
+
+```puppet
+define exampledefine (
+  String user = "${title}",
+  String group,
+) {
+  user { ${user}: }
+  group { ${group}: }
+  file { '/export/home/${user}/.examplesetting':
+    user    => ${user},
+    group   => ${group},
+    content => "User is ${user} and group is ${group}",
+  }
+}
+```
+
+#### Page 37
+
+The sentence,
+
+> This example has its dangers since if the second declaration for `user2` also used a group of `group1`, this would result in a duplicated resource declaration.
+
+can be written to add emphasis the word 'also' to make it clear to the reader that this is a hypothetical situation and is not a comment on how the example code above it is written.
+
+Example,
+
+> This example has its dangers. If the declaration for `user2` ___also___ used `group1`, this would result in a duplicated resource declaration for `group1`.
+
+In the sentence that ends,
+
+> ... prioritizing conflict between resources.
+
+'conflict' should be either 'conflicts' or 'a conflict'.
+
+:notebook: Reader's comment for page 37:
+
+> Each resource will have a type ...
+
+Can be written,
+
+> Each resource has a type ...
+
+#### Page 38
+
+As with the defined type introduction, the formatting could more closely match the class formatting:
+
+* Open with the resource type, such as `file`, with no quotes and lowercase
+* An open brace {
+* The title of the resource in quotes
+* A colon :
+* A list of attribute name/value pairs separated with `=>` and ending with a comma ,
+* A closing brace }
