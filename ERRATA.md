@@ -297,7 +297,7 @@ The reference to `.bin` should instead be `.msi`.
 
 :notebook: Reader's comment for page 43:
 
-Red Hat Enterprise Linux 8 and cannot install the `cowsay` package without first enabling EPEL.
+Red Hat Enterprise Linux 8 and distributions based on RHEL 8 cannot install the `cowsay` package without first enabling EPEL.
 
 #### Page 44
 
