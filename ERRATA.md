@@ -327,7 +327,7 @@ file { 'Puppet directory':
 
 #### Page 45
 
-The example `file` resource has hash rockets that are not aligned and the content had inconsisnt spacing.
+The example `file` resource has hash rockets that are not aligned and the content had inconsistant spacing.
 
 ```puppet
 file { 'Example config':
