@@ -257,3 +257,90 @@ As with the defined type introduction, the formatting could more closely match t
 * A colon :
 * A list of attribute name/value pairs separated with `=>` and ending with a comma ,
 * A closing brace }
+
+#### Page 40
+
+The code example has one typo:
+
+* Line 7: `name   => "$apach_package_name",` should instead be `name   => $apache_package_name,`
+
+:notebook: Reader's comment for page 40:
+
+The example could be rewritten to use the `os.family` fact with 'Red Hat'. Updated formatting to match the Puppet style guide and stricter linting.
+
+```puppet
+$apache_package_name = $facts['os']['family']? {
+  'Red Hat' => 'httpd',
+  default   => 'apache2',
+}
+package { 'apache':
+  ensure => latest,
+  name   => $apach_package_name,
+}
+```
+
+#### Page 42
+
+:notebook: Reader's comment for page 42:
+
+The sentence,
+
+> This sets several attributes to defaults, resulting in using the default provider for the underlying operating system, such as yum for Red Hat or, for Windows, the Windows provider ...
+
+could be written,
+
+> This sets several attributes to defaults, resulting in using the default provider for the underlying operating system, such as yum or dnf for Red Hat or the windows provider for Windows ...
+
+#### Page 43
+
+The reference to `.bin` should instead be `.msi`.
+
+:notebook: Reader's comment for page 43:
+
+Red Hat Enterprise Linux 8 and cannot install the `cowsay` package without first enabling EPEL.
+
+#### Page 44
+
+The sentence,
+
+> To create and enforce a resource, we must select the value of a file and use `direct` to create a directory or directory nest or `link` to create a symbolic link.
+
+Contains one typo. `direct` should be `directory`. In addition, the term "directory nest" is uncommon and should be "nested directories".
+
+:notebook: Reader's comment for page 44:
+
+```puppet
+file {'Puppet directory' :
+  ensure => 'directory',
+  path   => 'C:\ProgramData\PuppetLabs',
+}
+```
+
+To meet the style guide:
+
+```puppet
+file { 'Puppet directory':
+  ensure => directory,
+  path   => 'C:\ProgramData\PuppetLabs',
+}
+```
+
+#### Page 45
+
+The example `file` resource has hash rockets that are not aligned and the content had inconsisnt spacing.
+
+```puppet
+file { 'Example config':
+  ensure  => file,
+  path    => '/app/exampleapp/config.txt',
+  owner   => 'exampleapp',
+  group   => 'examplegroup',
+  content => "verbose = true\nselinux = permissive",
+}
+```
+
+The statement,
+
+> ... the comparative nature of Puppet, which uses `md5` checksums for content, ...
+
+Is inaccurate. Puppet uses SHA256 checksums.
