@@ -343,4 +343,4 @@ The statement,
 
 > ... the comparative nature of Puppet, which uses `md5` checksums for content, ...
 
-Is inaccurate. Puppet uses SHA256 checksums.
+As of Puppet 7, the default digest algorithm is SHA256 [PUP-10583](https://www.puppet.com/docs/puppet/7/release_notes_puppet.html#enhancements_puppet_7-0-0-pup-10583).
