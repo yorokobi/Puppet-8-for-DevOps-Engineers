@@ -275,7 +275,7 @@ $apache_package_name = $facts['os']['family']? {
 }
 package { 'apache':
   ensure => latest,
-  name   => $apach_package_name,
+  name   => $apache_package_name,
 }
 ```
 
