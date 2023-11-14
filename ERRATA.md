@@ -349,8 +349,12 @@ As of Puppet 7, the default digest algorithm is SHA256 [PUP-10583](https://www.p
 
 The statement,
 
-> The *purge* parameter can only be used with *ensure* set to *directory* or *recursive* set to *true* ...
+> The **purge** parameter can only be used with **ensure** set to **directory** or **recursive** set to **true** ...
 
 Should read,
 
-> The *purge* parameter can only be used with *ensure* set to *directory* or *recurse* set to *true* ...
+> The **purge** parameter can only be used with **ensure** set to **directory** or **recurse** set to **true** ...
+
+Or follow the Puppet 8 documentation entry:
+
+> [The `purge`] option only makes sense when `ensure => directory` and `recurse => true`.
