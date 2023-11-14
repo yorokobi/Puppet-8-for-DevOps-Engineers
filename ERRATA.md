@@ -344,3 +344,13 @@ The statement,
 > ... the comparative nature of Puppet, which uses `md5` checksums for content, ...
 
 As of Puppet 7, the default digest algorithm is SHA256 [PUP-10583](https://www.puppet.com/docs/puppet/7/release_notes_puppet.html#enhancements_puppet_7-0-0-pup-10583).
+
+#### Page 46
+
+The statement,
+
+> The *purge* parameter can only be used with *ensure* set to *directory* or *recursive* set to *true* ...
+
+Should read,
+
+> The *purge* parameter can only be used with *ensure* set to *directory* or *recurse* set to *true* ...
