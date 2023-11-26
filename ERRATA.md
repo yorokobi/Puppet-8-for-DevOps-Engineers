@@ -625,3 +625,123 @@ The `notify` code example should have a space prior to the closing brace, as fol
 ```puppet
 notify { 'print a message to logs': }
 ```
+
+#### Page 57
+
+The `audit` code example has too many spaces and the resource title does not end with a colon. It should be formatted as follows:
+
+```puppet
+file { '/var/tmp/example':
+  mode  => '0770',
+  audit => [owner,group],
+}
+```
+
+#### Page 58
+
+The example code for `tag` has too many spaces before the hash rockets, the value for `ensure` should not be quoted. It should be formatted as follows:
+
+```puppet
+class example::access {
+  group { 'ubuntu':
+    ensure => present,
+    gid    => 1000,
+    tag    => ['pci','sox'],
+  }
+  user { 'ubuntu':
+    ensure => present,
+    tag    => 'pci',
+  }
+}
+```
+
+The `resources` metatype code example does not follow the [Puppet language style guide](https://www.puppet.com/docs/puppet/8/style_guide.html#style_guide_module_design-spacing) for spacing the resource title. It should be formatted as follows:
+
+```puppet
+resources { 'user':
+  purge => true,
+  noop  => true,
+}
+```
+
+#### Page 59
+
+Spacing in the array of titles code example is invalid and does not match the style guide. It should be formatted as follows:
+
+```puppet
+file { ['/opt/example1','/opt/example1/etc','/opt/example1/bin']:
+  owner => 'user',
+  group => 'user',
+  mode  => '0750',
+}
+```
+
+The overriding parameters code example has too many spaces before the hash rockets and no space between `File` and the overridden resource title. It should be formatted as follows:
+
+```puppet
+File ['/opt/example/bin/'] {
+  group => 'other_group',
+  audit => true,
+}
+```
+
+#### Page 60
+
+Indentation for the example `case` statement for the splat attribute is inconsistent; there are too many spaces before the hash rockets; the splat attribute references a brace-enclosed variable when it should not; and the quoted strings should use single quotes instead of double quotes. It should be formatted as follows:
+
+```puppet
+case $facts['os']['name'] {
+  /^(Debian|Ubuntu)$/: {
+    $package_options = {
+      'name' => 'apache2'
+    }
+  }
+  default: {
+    $package_options = {
+      'name' => 'httpd'
+    }
+  }
+}
+package { 'http':
+  ensure => latest,
+  *      => $package_options,
+}
+```
+
+The statement,
+
+> This results in the package `http` resource using the name `http2` for Ubuntu and Debian systems ...
+
+Should be,
+
+> This results in the package `http` resource using the name `apache2` for Ubuntu and Debian systems ...
+
+In the lab, the instruction,
+
+> As a second exercise, create a separate manifest to create some users on the Linux client, `linux_users.pp create 3 users exampleappdev, exampleapptest, exampleappprod`, and a
+group, `exampleapp`, with all the users using this group as their primary group.
+
+Should be,
+
+> As a second exercise, create a separate manifest to create some users on the Linux client, `linux_users.pp`. Create three users: `exampleappdev`, `exampleapptest`, and `exampleappprod`. Create the group `exampleapp` with all three users using this group as their primary group.
+
+#### Page 61
+
+The code example for the abstract resource type references an undeclared variable, uses `resource` instead of `Resource`, and uses incorrect quoting that results in an unexpected end of file error.
+
+It should be formatted as follows:
+
+```puppet
+$mytype = exec
+Resource[$mytype] { '/bin/echo "don\'t use this" > /tmp/badidea':
+  creates => '/tmp/badidea',
+}
+```
+
+Likewise, the simple translation should be formatted as follows:
+
+```puppet
+exec { '/bin/echo "don\'t use this" > /tmp/badidea':
+  creates => '/tmp/badidea',
+}
+```
