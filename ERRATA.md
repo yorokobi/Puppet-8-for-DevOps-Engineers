@@ -358,3 +358,270 @@ Should read,
 Or follow the Puppet 8 documentation entry:
 
 > [The `purge`] option only makes sense when `ensure => directory` and `recurse => true`.
+
+The `recurse` example has incorrect spacing and `ensure => directory` does not need to be quoted. It should be formatted as follows:
+
+```puppet
+file { 'Remove apache config files outside of puppet control':
+  ensure  => directory,
+  purge   => true,
+  recurse => true,
+  path    => '/etc/httpd/conf',
+}
+```
+
+The `target` example has incorrect spacing and is missing quotes for the `path` and `target` values. Capitalization for "Python" and "RHEL" added with formatting as follows:
+
+```puppet
+file { 'Picking a Python on RHEL 8':
+  ensure  => link,
+  path    => '/usr/bin/python3',
+  target  => '/usr/bin/python',
+}
+```
+
+The following is not a correction; however, the Puppet language style guide would format the `source` example thus,
+
+```puppet
+file { '/etc/exampleapp.conf':
+  source => [
+    "nfsserver:///exampleapp/conf.${host}",
+    "nfsserver:///exampleapp/conf.${operatingsystem}",
+    'nfsserver:///exampleapp/conf',
+  ]
+}
+```
+
+#### Page 47
+
+The statement,
+
+> The replace parameter should be used sparingly, but if set to **true**, allows for a file to have content enforced only if it does not exist. If the file exists, the state is met. This can be useful for applications that require an initial configuration file but then overwrite it.
+
+Should read,
+
+> The replace parameter should be used sparingly, but if set to **false**, allows for a file to have content enforced only if it does not exist ...
+
+From the [Puppet 8 documentation](https://www.puppet.com/docs/puppet/8/types/file.html#file-attribute-replace):
+
+> **replace**
+>
+> Whether to replace a file or symlink that already exists on the local system but whose content doesn't match what the `source` or `content` attribute specifies.  Setting this to false allows file resources to initialize files without overwriting future changes.  Note that this only affects content; Puppet will still manage ownership and permissions.
+
+#### Page 48
+
+For the `service` example, the values for `enable` do not need to be quoted and should be formatted as follows:
+
+```puppet
+service { 'wuauserv':
+  ensure       => running,
+  enable       => delayed,
+  logonaccount => 'LocalSystem',
+}
+service { 'bam':
+  ensure => stopped,
+  enable => false,
+}
+```
+
+The statement,
+
+> Comparing this to `systemd`, the default provider for RHEL 8 and other Linux systems, we can see in the description under supported features that `systemctl` does not have delayed login or `manual` but does have `mask`, which, in system terms, means it disables the service so not even services that are dependent on it can activate it.
+
+Should read (correct 'system' to '`systemd`'),
+
+> Comparing this to `systemd`, the default provider for RHEL 8 and other Linux systems, we can see in the description under supported features that `systemctl` does not have delayed login or `manual` but does have `mask`, which, in `systemd` terms, means it disables the service so not even services that are dependent on it can activate it.
+
+#### Page 49
+
+The formatting for the legacy service example should be,
+
+```puppet
+service { 'legacy service':
+  ensure  => running,
+  enable  => true,
+  start   => '/opt/legacyapp/startlegacy -e production',
+  stop    => '/opt/legacyapp/stoplegacy -e production',
+  status  => '/opt/legacyapp/legacystatus -e production',
+}
+```
+
+#### Page 50
+
+There are two formatting corrections for the `metaparameters` code example. There is no comma after the package `name` attribute and the `service` resource is declared with a capitalized 'S' and lacks a space following the opening brace. It should be formatted as follows:
+
+```puppet
+package { 'example app package':
+  ensure => latest,
+  name   => 'exampleapp',
+  before => File['example app configuration'],
+}
+file { 'example app configuration':
+  content => 'attribute=value',
+  notify  => Service['example app service'],
+}
+service { 'example app service':
+  name    => 'exampleapp',
+  enable  => true,
+  ensure  => running,
+  require => Package['example app package'],
+}
+```
+
+The resource type dependency array example has two formatting corrections: there is an extra space in the resource title and no closing bracket for the array. In addition, the resource title or `path` attribute should use forward slashes as recommended in the [file resource documentation](https://www.puppet.com/docs/puppet/8/types/file.html#file-attribute-path) and should be formatted as:
+
+```puppet
+file { 'C:/Program Files/Common Files/Example':
+  require => Package['package1', 'package2'],
+}
+```
+
+#### Page 51
+
+In the statement,
+
+> The code can also be run in **noop mode**,
+
+'mode' does not need to be in bold face.
+
+The `grafana.ini` code example uses upper case key names; however, the [Grafana documentation](https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/) use only lower case key names and should be formatted as:
+
+```ini
+[server]
+protocol = HTTP
+http_port = 8080
+```
+
+#### Page 52
+
+There are a number of formatting errors in the closing paragraph under the sub heading "User and group types".
+
+> <name of computer\<user name>
+
+Should be,
+
+> <name of computer>\<user name>
+
+The code formatting for the statement,
+
+> So, for example, `'DESKTOP-1MT10AJ\david`, `'BUILTIN\david'` and `david` are all treated
+the same by Puppet.
+
+Is inconsistent with missing single quotes for the first and third user names and should be formatted as: 
+
+> So, for example, `'DESKTOP-1MT10AJ\david'`, `'BUILTIN\david'` and `'david'` are all treated
+the same by Puppet.
+
+The Windows and Unix account and group code example contains a number of formatting errors and should be formatted as follows. I have reformatted the arrays so they are not on a single line and match the Puppet language style guide.
+
+```puppet
+user { 'david':
+  ensure => present,
+  groups => [
+    'BUILTIN\Administrators',
+    'BUILTIN\Users',
+  ],
+}
+group { 'Users':
+  ensure  => present,
+  members => [
+    'NT AUTHORITY\INTERACTIVE',
+    'NT AUTHORITY\Authenticated Users',
+    'DESKTOP-1MT10AJ\david',
+  ],
+}
+user { 'ubuntu':
+  ensure             => present,
+  comment            => 'Ubuntu',
+  gid                => 1000,
+  groups             => [
+    'adm',
+    'dialout',
+    'cdrom',
+    'floppy',
+    'sudo',
+    'audio',
+    'dip',
+    'video',
+    'plugdev',
+    'lxd',
+    'netdev',
+  ],
+  home               => '/home/ubuntu',
+  password           => '!',
+  password_max_age   => 99999,
+  password_min_age   => 0,
+  password_warn_days => 7,
+  shell              => '/bin/bash',
+  uid                => 1000,
+}
+group { 'ubuntu':
+  ensure => present,
+  gid    => 1000,
+}
+```
+
+#### Page 53
+
+The statement,
+
+> We can achieve this if the command itself is already idempotent,
+such as `apt-get update` ...
+
+`apt-get update` is arguably *not* idempotent as the command updates a catalog file after every run and may exit with a non-zero status.
+
+In the paragraph,
+
+> In the first case, if the command is idempotent, it will do no harm, but it will log in each Puppet run that it has run, and therefore using the other two methods is better to avoid the exec reporting runs.
+
+It should reference "the other three methods ..." (`onlyif`, `unless`, and `creates`). If the language of the paragraph is referring to the use of `onlyif` then it should make it clear that "the first case" is `onlyif`.
+
+In the `exec` code example for disabling public Chocolatey access, the hash rockets do not align. Indentation for both `exec` examples differ (pages 53 and 54). One use four spaces, the other uses three.
+
+#### Page 54
+
+There are too many spaces for the third `exec` code scenario. The exmaple should be formatted as follows:
+
+```puppet
+exec { 'refresh exampleapp configuration':
+  command     => '/bin/exampleapp/rereadconfig',
+  refreshonly => true,
+  subscribe   => File['config file'],
+}
+file { 'config file':
+  path    => '/etc/exampleapp/configfile',
+  content => 'setting 1 = value',
+}
+```
+
+There is no Puppet version 7.9+ as referenced in the statement,
+
+> On Unix platforms, a recent feature called parametrized execs was introduced with Puppet 6.24+ and 7.9+ ...
+
+I have not yet identified which 7.2+ (presumably) release added parameterized `exec`.
+
+The parameterized `exec` code example has too many spaces and does not include a colon after the resource title.
+
+The example should be formatted as follows:
+
+```puppet
+exec { 'parametrized command':
+  command => ['/bin/echo', 'real parameters; rm -rf /'],
+}
+```
+
+#### Page 56
+
+The Augeas code example has too many spaces and the resource type should be lower case. It should be formatted as follows:
+
+```puppet
+augeas { 'remove John from access.conf':
+  changes => 'rm /files/etc/security/access.conf/*[user="john"]',
+}
+```
+
+The `notify` code example should have a space prior to the closing brace, as follows:
+
+```puppet
+notify { 'print a message to logs': }
+```
