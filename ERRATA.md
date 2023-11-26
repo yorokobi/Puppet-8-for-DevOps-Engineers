@@ -327,7 +327,7 @@ file { 'Puppet directory':
 
 #### Page 45
 
-The example `file` resource has hash rockets that are not aligned and the content had inconsistant spacing.
+The example `file` resource has hash rockets that are not aligned and the content had inconsistant spacing. It should be formatted as follows:
 
 ```puppet
 file { 'Example config':
@@ -428,13 +428,13 @@ The statement,
 
 > Comparing this to `systemd`, the default provider for RHEL 8 and other Linux systems, we can see in the description under supported features that `systemctl` does not have delayed login or `manual` but does have `mask`, which, in system terms, means it disables the service so not even services that are dependent on it can activate it.
 
-Should read (correct 'system' to '`systemd`'),
+Should read (correct 'in system terms' to 'in `systemd` terms'),
 
 > Comparing this to `systemd`, the default provider for RHEL 8 and other Linux systems, we can see in the description under supported features that `systemctl` does not have delayed login or `manual` but does have `mask`, which, in `systemd` terms, means it disables the service so not even services that are dependent on it can activate it.
 
 #### Page 49
 
-The formatting for the legacy service example should be,
+The formatting for the legacy service example should be:
 
 ```puppet
 service { 'legacy service':
@@ -496,11 +496,11 @@ http_port = 8080
 
 There are a number of formatting errors in the closing paragraph under the sub heading "User and group types".
 
-> <name of computer\<user name>
+`<name of computer\<user name>`
 
 Should be,
 
-> <name of computer>\<user name>
+`<name of computer>\<user name>`
 
 The code formatting for the statement,
 
