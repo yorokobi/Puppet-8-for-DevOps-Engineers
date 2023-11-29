@@ -745,3 +745,99 @@ exec { '/bin/echo "don\'t use this" > /tmp/badidea':
   creates => '/tmp/badidea',
 }
 ```
+#### Page 62
+
+:notebook: In the code example for the `default:` resource body, one array ends with a comma but the other does not.
+
+The code example for the "Resource default syntax" uses a lower case 'f' for `file` instead of the upper case `File` as well as too many spaces before the hash rockets. The example should be formatted as follows:
+
+```puppet
+File {
+  owner => 'exampleapp',
+  group => 'exampleapp',
+  mode  => '0660',
+}
+```
+
+The `schedule` code examples also have too many spaces before or within the hash rockets and should be formatted as follows:
+
+```puppet
+schedule { 'Friday Night':
+  day   => 'Friday',
+  range => '18 - 9',
+}
+```
+
+```puppet
+exec { '/bin/echo weekend start > /tmp/example':
+  schedule => 'Friday Night',
+}
+```
+
+:notebook: The statement in the first paragraph under the 'Exporters and collectors' has this statement,
+
+> This is done by exporting the information to the PuppetDB database, which Puppet runs will consult with when collecting.
+
+I would make the sentence more clear by adding 'resources' to the end of the sentence,
+
+> This is done by exporting the information to the PuppetDB database, which Puppet runs will consult with when collecting resources.
+
+#### Page 63
+
+:notebook: The statement,
+
+> Exporting a resource just involves adding `@@` in front of a normal resource declaration.
+
+Can be,
+
+> Exporting a resource requires adding `@@` in front of a normal resource declaration.
+
+The code example for exporting resources references a legacy fact pattern and has too many spaces before the hash rockets. It should be formatted as follows:
+
+```puppet
+@@host { "Oracle database host entry ${trusted['hostname']}" :
+  name => 'dbserver1',
+  ip   => '192.168.0.6',
+  tag  => 'oracle',
+}
+```
+
+#### Page 69
+
+In the Note at the beginning of the page, the statement,
+
+> We are simplifying the process slightly here as there are now deferred functions that can run
+after complications.
+
+Should read,
+
+> We are simplifying the process slightly here as there are now deferred functions that can run
+after compilations.
+
+Under the "Naming" heading, he sentence,
+
+> The exception is regex capture variables, which are variables only named with numbers such as `$0`, `$1`, and so on.
+
+Should read,
+
+> The exception is regex capture variables, which are the only variables named with numbers such as `$0`, `$1`, and so on.
+
+#### Page 70
+
+:notebook: The `notify` code example under the "Interpolation" heading is missing spaces between `notify` and the opening brace and after the opening brace. It should be formatted as follows:
+
+```puppet
+notify { 'debug variable':
+  message => "The database directory is ${database_directory}",
+}
+```
+
+The code example under the "Data types" heading is missing the `$` prefix for variables and should be formatted as follows:
+
+```puppet
+class example (
+  String $example_string = 'hello world',
+  Integer $example_integer = 1,
+) {
+}
+```
