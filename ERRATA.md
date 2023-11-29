@@ -95,8 +95,6 @@ The final bullet point for Visual Studio Code extensions references an applicati
 
 > "Augeuas is very advanced but often over-complicated ..."
 
-The URL <https://validate.puppet.com/> is not valid. No such website exists. This is referenced on pages 24, 40, 131, and 143.
-
 :notebook: (pages 24-25) The ending of the following sentence lacks a proper subject for what to develop and what to integrate with:
 
 > One of the greatest issues with early Puppet development was the lack of a consensus around how to develop and a lack of integration.
