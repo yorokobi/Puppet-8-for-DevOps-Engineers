@@ -53,9 +53,7 @@ The code examples have one typo each:
 
 `profile::exampleapp:uid: '1235'` should instead be: `profile::exampleapp::uid: '1235'`
 
-:notebook: Reader's comment for page 45:
-
-The sentence,
+:notebook: The sentence,
 
 > One of the most important points of creating these patterns is to avoid hardcoded values in your modules.
 
@@ -69,9 +67,7 @@ The code example has two typos:
 
 * Line 2 `:git => 'https://github.com/exampleorg/exampleapp'` should instead be `:git => 'https://github.com/exampleorg/exampleapp.git',`
 
-:notebook: Reader's comment for page 50:
-
-The sentence,
+:notebook: The sentence,
 
 > Normally, this means a minimum of a development environment and a production environment. So, changes can be tested against servers in development, and then successfully tested ones can be deployed to production.
 
@@ -79,9 +75,7 @@ should instead be,
 
 > Normally, this means a minimum of a development environment and a production environment so changes can be tested against servers in development and then successfully tested ones can be deployed to production.
 
-:notebook: Reader's comment for page 53:
-
-The reference to the latest version of Puppet should be changed from 7 to 8. All installation URIs appear to use Puppet 8 even though the Azure lab installs Puppet 7.
+:notebook: The reference to the latest version of Puppet should be changed from 7 to 8. All installation URIs appear to use Puppet 8 even though the Azure lab installs Puppet 7.
 
 #### Page 20
 
@@ -103,9 +97,7 @@ The final bullet point for Visual Studio Code extensions references an applicati
 
 The URL <https://validate.puppet.com/> is not valid. No such website exists. This is referenced on pages 24, 40, 131, and 143.
 
-:notebook: Reader's comments for pages 24-25:
-
-The ending of the following sentence lacks a proper subject for what to develop and what to integrate with:
+:notebook: (pages 24-25) The ending of the following sentence lacks a proper subject for what to develop and what to integrate with:
 
 > One of the greatest issues with early Puppet development was the lack of a consensus around how to develop and a lack of integration.
 
@@ -129,9 +121,7 @@ can be simplified (and the typo "unecessary" corrected) to,
 
 > ... to avoid paying for unnecessary virtual machine time on Azure.
 
-:notebook: Reader's comment for page 26:
-
-References to 'Yum' or 'yum' should be replaced with 'dnf' as Red Hat Enterprise Linux 8+ (and related distributions) use 'dnf' by default. This is also true of the package provider for these distributions.
+:notebook: References to 'Yum' or 'yum' should be replaced with 'dnf' as Red Hat Enterprise Linux 8+ (and related distributions) use 'dnf' by default. This is also true of the package provider for these distributions.
 
 #### Page 29
 
@@ -139,9 +129,7 @@ The code example has one typo:
 
 * Line 1: `mkdir ~workspace/pecdm` should instead be `mkdir -p ~workspace/pecdm`
 
-:notebook: Reader's comment for page 29:
-
-`~workspace` should be `~/workspace`. Example: `mkdir -p ~/workspace/pecdm`
+:notebook: `~workspace` should be `~/workspace`. Example: `mkdir -p ~/workspace/pecdm`
 
 #### Page 31
 
@@ -169,9 +157,7 @@ Should instead be,
 
 In the paragraph that begins, "The key difference is that" the two words "self paced" should be hyphenated as "self-paced"
 
-:notebook: Reader's comment for page 32:
-
-The paragraph beginning,
+:notebook: The paragraph beginning,
 
 > This section is not supposed to be an exhaustive ...
 
@@ -195,9 +181,7 @@ The class resource declaration has one typo:
 
 * Line 2: `paramter1 => 'value1',` should instead be: `parameter1 => 'value1',`
 
-:notebook: Reader's comment for page 36:
-
-The bulleted list for the defined type declaration differs from the class declaration from the previous page. Suggestion: do not parenthetically identify the opening and closing elements.
+:notebook: The bulleted list for the defined type declaration differs from the class declaration from the previous page. Suggestion: do not parenthetically identify the opening and closing elements.
 
 Example:
 
@@ -264,9 +248,7 @@ The code example has one typo:
 
 * Line 7: `name   => "$apach_package_name",` should instead be `name   => $apache_package_name,`
 
-:notebook: Reader's comment for page 40:
-
-The example could be rewritten to use the `os.family` fact with 'Red Hat'. Updated formatting to match the Puppet style guide and stricter linting.
+:notebook: The example could be rewritten to use the `os.family` fact with 'Red Hat'. Updated formatting to match the Puppet style guide and stricter linting.
 
 ```puppet
 $apache_package_name = $facts['os']['family']? {
@@ -281,9 +263,7 @@ package { 'apache':
 
 #### Page 42
 
-:notebook: Reader's comment for page 42:
-
-The sentence,
+:notebook: The sentence,
 
 > This sets several attributes to defaults, resulting in using the default provider for the underlying operating system, such as yum for Red Hat or, for Windows, the Windows provider ...
 
@@ -295,9 +275,7 @@ could be written,
 
 The reference to `.bin` should instead be `.msi`.
 
-:notebook: Reader's comment for page 43:
-
-Red Hat Enterprise Linux 8 and distributions based on RHEL 8 cannot install the `cowsay` package without first enabling EPEL.
+:notebook: Red Hat Enterprise Linux 8 and distributions based on RHEL 8 cannot install the `cowsay` package without first enabling EPEL.
 
 #### Page 44
 
@@ -307,7 +285,7 @@ The sentence,
 
 Contains one typo. `direct` should be `directory`. In addition, the term "directory nest" is uncommon and should be "nested directories".
 
-:notebook: Reader's comment for page 44:
+:notebook: 
 
 ```puppet
 file {'Puppet directory' :
@@ -563,10 +541,9 @@ group { 'ubuntu':
 
 #### Page 53
 
-The statement,
+:notebook: The statement,
 
-> We can achieve this if the command itself is already idempotent,
-such as `apt-get update` ...
+> We can achieve this if the command itself is already idempotent, such as `apt-get update` ...
 
 `apt-get update` is arguably *not* idempotent as the command updates a catalog file after every run and may exit with a non-zero status.
 
@@ -580,7 +557,7 @@ In the `exec` code example for disabling public Chocolatey access, the hash rock
 
 #### Page 54
 
-There are too many spaces for the third `exec` code scenario. The exmaple should be formatted as follows:
+There are too many spaces for the third `exec` code scenario. The example should be formatted as follows:
 
 ```puppet
 exec { 'refresh exampleapp configuration':
@@ -600,12 +577,12 @@ There is no Puppet version 7.9+ as referenced in the statement,
 
 I have not yet identified which 7.2+ (presumably) release added parameterized `exec`.
 
-The parameterized `exec` code example has too many spaces and does not include a colon after the resource title.
+The parameterized `exec` code example has a typo for 'parameterized', has too many spaces and does not include a colon after the resource title.
 
 The example should be formatted as follows:
 
 ```puppet
-exec { 'parametrized command':
+exec { 'parameterized command':
   command => ['/bin/echo', 'real parameters; rm -rf /'],
 }
 ```
@@ -620,7 +597,7 @@ augeas { 'remove John from access.conf':
 }
 ```
 
-The `notify` code example should have a space prior to the closing brace, as follows:
+:notebook: The `notify` code example should have a space prior to the closing brace, as follows:
 
 ```puppet
 notify { 'print a message to logs': }
@@ -639,7 +616,7 @@ file { '/var/tmp/example':
 
 #### Page 58
 
-The example code for `tag` has too many spaces before the hash rockets, the value for `ensure` should not be quoted. It should be formatted as follows:
+The example code for `tag` has too many spaces before the hash rockets, the value for `ensure` need not be quoted. It should be formatted as follows:
 
 ```puppet
 class example::access {
@@ -774,11 +751,11 @@ exec { '/bin/echo weekend start > /tmp/example':
 }
 ```
 
-:notebook: The statement in the first paragraph under the 'Exporters and collectors' has this statement,
+:notebook: The statement in the first paragraph under the "Exporters and collectors" has this statement,
 
 > This is done by exporting the information to the PuppetDB database, which Puppet runs will consult with when collecting.
 
-I would make the sentence more clear by adding 'resources' to the end of the sentence,
+I would make the sentence more clear by adding 'resources' to the end of the sentence:
 
 > This is done by exporting the information to the PuppetDB database, which Puppet runs will consult with when collecting resources.
 
@@ -806,15 +783,13 @@ The code example for exporting resources references a legacy fact pattern and ha
 
 In the Note at the beginning of the page, the statement,
 
-> We are simplifying the process slightly here as there are now deferred functions that can run
-after complications.
+> We are simplifying the process slightly here as there are now deferred functions that can run after complications.
 
 Should read,
 
-> We are simplifying the process slightly here as there are now deferred functions that can run
-after compilations.
+> We are simplifying the process slightly here as there are now deferred functions that can run after compilations.
 
-Under the "Naming" heading, he sentence,
+Under the "Naming" heading, the sentence,
 
 > The exception is regex capture variables, which are variables only named with numbers such as `$0`, `$1`, and so on.
 
@@ -839,5 +814,190 @@ class example (
   String $example_string = 'hello world',
   Integer $example_integer = 1,
 ) {
+}
+```
+
+#### Page 71
+
+The second sentence in the paragraph that begins with, "The next section will run ..." has an errant period between "types" and "so" that should be removed:
+
+> Unfortunately, Puppet has no equivalent to the `puppet describe` command for data types .so all references ...
+
+#### Page 72
+
+:notebook: For the single quote example of the Windows path, it should be noted that the `file` resource documentation states,
+
+> On Windows, the path should include the drive letter and should use `/` as the separator character (rather than `\`).
+
+#### Page 73
+
+The double-quoted string code example has the `file` resource opening brace *after* the resource title. It should be formatted as follows:
+
+```puppet
+$make_file_content = "hello:\n\techo \"hello world\""
+
+file { '/home/david/makefile':
+  content => $make_file_content,
+}
+```
+
+### Page 75
+
+:notebook: All of the `notify` code examples on this page should have the the colon at the end of the resource title separated from the closing brace (`'title' :}` becomes `'title': }`).
+
+The statement,
+
+> For example, to extract the third character of a string variable, you would use an index of 3 (since indexing starts at 0).
+
+Should be,
+
+> For example, to extract the fourth character of a string variable, you would use an index of 3 (since indexing starts at 0).
+
+Likewise, the sentence with,
+
+> ... and you want to extract a substring that starts at the third character and includes the next five characters ...
+
+Should be,
+
+> ... and you want to extract a substring that starts at the fourth character and includes the next five characters ...
+
+The paragraph,
+
+> This would return the substring that starts at the fourth character from the end (which corresponds to the letter 't' in 'substring') and includes the next three characters, which in this case would be 'tri'.
+
+Does not match the preceding code example,
+
+```puppet
+notify { "${example_string[-4,-1]}": }
+```
+
+It should be,
+
+> This would return the substring that starts at the fourth character from the end (which corresponds to the letter 'r' in 'substring') and includes the next three characters, which in this case would be 'ring'.
+
+### Page 76
+
+The paragraph,
+
+> This would return the substring that starts at the fourth character from the end (which corresponds to the letter 't' in 'substring') and includes the next four characters, which in this case would be 'ring'.
+
+Which references the code example at the end of page 75:
+
+```puppet
+notify { "${example_string[-4,4]}": }
+```
+
+Should be,
+
+> This would return the substring that starts at the fourth character from the end (which corresponds to the letter 'r' in 'substring') and includes the next three characters, which in this case would be 'ring'.
+
+The code example for "... package names, application versions, or other consistent names ..." has an errant 'c' in the `$hostname` variable. It should be (comments added to show expected output),
+
+```puppet
+$hostname = flkoraprd00034
+$location = $hostname[0,3] # flk
+$role = $hostname[3,3] # ora
+$env = $hostname[6,3] # prd
+$id = $hostname[-5,5] # 00034
+```
+
+It should also be noted that the variable `$environment` is reserved and refers to the Puppet environment. I have taken the liberty of changing the variable in the example to `$env`.
+
+:notebook: The formatting for the word 'string' at the end of the sentence,
+
+> The default for the minimum is 0 and the maximum is infinity. To use the default implicitly, you can use the default unquoted string keyword.
+
+Should be in bold and capitalized,
+
+> The default for the minimum is 0 and the maximum is infinity. To use the default implicitly, you can use the default unquoted **String** keyword.
+
+The code example for the 'database' class should not quote "database", is missing the `$` prefix for the variables, has an extra space after `'dbuser'`, and a colon after the closing brace that should not be there.
+
+Puppet linters will also suggest that the `$description` variable precede the others.
+
+It should be formatted:
+
+```puppet
+class database (
+  String $description,
+  String[4,4] $database_id,
+  String[6,8] $username = 'dbuser',
+) {
+}
+```
+
+### Page 77
+
+The `$scientific float = 3e5` example is missing an underscore and should be `$scientific_float = 3e5`.
+
+The example `$hex = 0x` assigns an invalid number to the `$hex` variable. It should have some hexidecimal value after `0x`. For example, `$hex = 0x3a`.
+
+### Page 78
+
+:notebook: It should be noted that BODMAS is a region-specific (UK) acronym whereas other regions have different conventions: PEMDAS in the United States or BEDMAS in Canada, for example. What one region calls a bracket, another calls a parenthesis.
+
+:notebook: I believe 'modulo' should be removed and substitute 'order of operation' for 'priority' in the sentence,
+
+> Shifts are essentially treated as multiplication and modulo division in this priority.
+
+:notebook: The subordinate clause seems to contradict the primary clause in this sentence,
+
+> Any operations between an integer and a float will result in a float and an operation on an integer, which would result in a float being rounded down to an integer.
+
+The use of 'which would' here should probably be changed to 'will' with the comma before 'which' removed:
+
+... on an integer will result in ...
+
+However, the sentence is unclear as to the outcome of integer and float operations. Will it be a float or a rounded down integer?
+
+#### Page 79
+
+:notebook: The code example at the top of the page may be easier to read with spaces surrounding the equal symbols. It could be formatted as:
+
+```puppet
+$string_integer = '1'
+$string_float = '1.1'
+$converted_integer = Integer($string_integer)
+$converted_float = Float($string_float)
+```
+
+The code example for the `application::filesystem` class needs `$` prefixes for the variables and should be indented for readability.
+
+It should be formatted:
+
+```puppet
+class application::filesystem (
+  Float[0.1, 99.9] $percentage_application,
+  Integer[100, 10000] $volume_group_size,
+) {
+}
+```
+
+#### Page 80
+
+Indentation for the `notify` code example is further from the margin than other code examples in the book. In addition, the `$test1` variable should be enclosed in braces.
+
+```puppet
+notify { "Print ${test1}": }
+```
+
+:notebook: The sentence,
+
+> The only value an **undef** data type has is the unquoted `undef` and it is not used for parameter data typing by itself. This is because enforcing the absence of a value would have no purpose.
+
+Could be written,
+
+> The value of an **undef** data type is the unquoted keyword `undef` and it is not used for parameter data typing by itself; enforcing the absence of a value has no purpose.
+
+The code example for the boolean class `exampleapp` is missing the `$` variable prefix.
+
+It should be formatted:
+
+```puppet
+class exampleapp (
+  Boolean $manage_users = true,
+) {
+  $install_ssh = true
+  $install_telnet = false
 }
 ```
