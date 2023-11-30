@@ -760,7 +760,7 @@ Can be,
 
 > Exporting a resource requires adding `@@` in front of a normal resource declaration.
 
-The code example for exporting resources references a legacy fact pattern and has too many spaces before the hash rockets. It should be formatted as follows:
+The code example for exporting resources references a legacy fact and has too many spaces before the hash rockets. It should be formatted as follows:
 
 ```puppet
 @@host { "Oracle database host entry ${trusted['hostname']}" :
@@ -790,7 +790,7 @@ Should read,
 
 #### Page 70
 
-:notebook: The `notify` code example under the "Interpolation" heading is missing spaces between `notify` and the opening brace and after the opening brace. It should be formatted as follows:
+:notebook: The `notify` code example under the "Interpolation" heading is missing spaces before and after the opening brace. It should be formatted as follows:
 
 ```puppet
 notify { 'debug variable':
@@ -798,7 +798,7 @@ notify { 'debug variable':
 }
 ```
 
-The code example under the "Data types" heading is missing the `$` prefix for variables and should be formatted as follows:
+The code example under the "Data types" heading is missing the `$` variable prefix. It should be formatted as follows:
 
 ```puppet
 class example (
@@ -864,7 +864,7 @@ notify { "${example_string[-4,-1]}": }
 
 It should be,
 
-> This would return the substring that starts at the fourth character from the end (which corresponds to the letter 'r' in 'substring') and includes the next three characters, which in this case would be 'ring'.
+> This would return the substring that starts at the fourth character from the end (which corresponds to the letter 'r' in 'substring') and includes the next three characters, which in this case would be 'ing'.
 
 ### Page 76
 
@@ -898,9 +898,9 @@ It should also be noted that the variable `$environment` is reserved and refers 
 
 > The default for the minimum is 0 and the maximum is infinity. To use the default implicitly, you can use the default unquoted string keyword.
 
-Should be in bold and capitalized,
+Should be formatted with a monospace font and capitalized,
 
-> The default for the minimum is 0 and the maximum is infinity. To use the default implicitly, you can use the default unquoted **String** keyword.
+> The default for the minimum is 0 and the maximum is infinity. To use the default implicitly, you can use the default unquoted `String` keyword.
 
 The code example for the 'database' class should not quote "database", is missing the `$` prefix for the variables, has an extra space after `'dbuser'`, and a colon after the closing brace that should not be there.
 
@@ -1003,7 +1003,7 @@ Should be,
 
 > For example, an array called `$example_array` containing the strings `'first'`, `'second'`, and `'third'` is declared as follows:
 
-:notebook: The code mixed array code example has an errant space and should be formatted as:
+:notebook: The mixed array code example has an errant space and should be formatted as:
 
 ```puppet
 $example_boolean = false
