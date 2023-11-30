@@ -281,23 +281,16 @@ The sentence,
 
 > To create and enforce a resource, we must select the value of a file and use `direct` to create a directory or directory nest or `link` to create a symbolic link.
 
-Contains one typo. `direct` should be `directory`. In addition, the term "directory nest" is uncommon and should be "nested directories".
+Contains one typo: `direct` should be `directory`. In addition, the term "directory nest" is uncommon and should be "nested directories."
 
-:notebook: 
+The example `file` resource has incorrect spacing for the resource title, quotes the `ensure` value, and uses back slashes instead of forward slashes for the `path` value.
 
-```puppet
-file {'Puppet directory' :
-  ensure => 'directory',
-  path   => 'C:\ProgramData\PuppetLabs',
-}
-```
-
-To meet the style guide:
+It should be formatted as:
 
 ```puppet
 file { 'Puppet directory':
   ensure => directory,
-  path   => 'C:\ProgramData\PuppetLabs',
+  path   => 'C:/ProgramData/PuppetLabs',
 }
 ```
 
@@ -999,3 +992,89 @@ class exampleapp (
   $install_telnet = false
 }
 ```
+
+#### Page 82
+
+Under the subsection, "Assigning arrays," the concluding sentence before the code example,
+
+> For example, an array called `example_array` containing the `first`, `second`, and `third` strings, and would be declared as follows:
+
+Should be,
+
+> For example, an array called `$example_array` containing the strings `'first'`, `'second'`, and `'third'` is declared as follows:
+
+:notebook: The code mixed array code example has an errant space and should be formatted as:
+
+```puppet
+$example_boolean = false
+$mixed_example_array = [ 1, $example_boolean, 'example' ]
+```
+
+In the "Accessing an array index" code example, there is a space between the variable `$second_index` and the index `[1]`. It should be formatted as:
+
+```puppet
+$example_array = [ 'first','second','third' ]
+$second_index = $example_arrary[1]
+```
+
+In the `notify` example, 'first' should instead be 'third'; it also has mis-matched spacing and should be formatted as:
+
+```puppet
+notify { "The third element is ${example_array[-1]}": }
+```
+
+The sentence at the end of the page is incomplete. It may be sufficient to simply state that a space between the variable and the opening bracket will result in a syntax error.
+
+> You mustn’t put any spacing between the square bracket and the variable name; otherwise, it will be interpreted as a variable and the square brackets will be separate.
+
+Could be written as,
+
+> Any whitespace between the variable name and the opening square bracket will result in a syntax error.
+
+#### Page 83
+
+The `$sub_array` code example has one too many spaces following the `=` symbol and the reference to `$example_array` is missing the `$` variable prefix. It should be formatted as:
+
+```puppet
+$sub_array = $example_array[1,1]
+```
+
+All of the negative length code examples are missing the `$` variable prefix for the `$example_array`. It should be formatted as:
+
+```puppet
+$negative_sub_array = $example_array[0, -1]
+$empty_sub_array = $example_array[1, -3]
+$second_element_array = $example_array[1, -2]
+```
+
+In the nested array code example, if the line for `$nest_second` is to return the string 'nest_second' it should be formatted as:
+
+```puppet
+$nest_second = $nested_array[1][1]
+```
+
+The sentence,
+
+> For example, the following `notify` resource will print the first element of `nested_array`:
+
+With the code example,
+
+```puppet
+notify {"Print ${nested_array[1][0]}":}
+```
+
+Should either be written to refer to the *second* element,
+
+> For example, the following `notify` resource will print the second element of `$nested_array`:
+
+Or the code example changed thus to refer to the first element:
+
+```puppet
+notify { "Print ${nested_array[0][0]}": }
+```
+
+If the intent was to demonstrate that the `notify` resource will print the first element of the *nested* array, it should be written as,
+
+> For example, the following `notify` resource will print the first element of the nested array:
+
+With the corrected code referring to index `[1][0]`.
