@@ -1217,6 +1217,81 @@ Should be:
 
 #### Page 90
 
+:notebook: The hash rockets in the `user` resource code example do not align.
+
 :notebook: I am uncertain what meaning this sentence is supposed to convey.
 
 > If only the unwrap is performed when running Puppet with debug, the command and password would be fully visible.
+
+#### Page 91
+
+The opening phrase to the following paragraph seems to use the word 'pattern' one too many times. At the end of the paragraph, `string` should be `String`.
+
+> `Enum` and more advanced pattern data type patterns, which will be covered in the next section, will not work with `Sensitive` and should be avoided. Here, you should only use basic types such as `string`.
+
+Suggested,
+
+> The next section covers more advanced data types that do not work with `Sensitive` and should be avoided. Use only basic data types such as `String`.
+
+Alternatively, remove the paragraph entirely and note the warning in the relevant section.
+
+#### Page 92
+
+The sentence under the "Arrays and hashes" heading,
+
+> In this section, we will cover the various arrays and hashes types.
+
+Should be,
+
+> In this section, we will cover the various array and hash types.
+
+#### Page 93
+
+The sentence,
+
+> The `user_declaration` variable requires a string for the username, an integer for the UID, and at least one string up to eight characters in length, which represents the groups that a user can be assigned to.
+
+Does not agree with the code example. It claims "one string up to eight characters" but the code example has no reference to eight. The way the example is written, it defines the `$user_declaration` variable as an array comprising a `String`, an `Integer`, and another `String` with a minimum of those three elements and a maximum of ten `String` type elements (the last defined type).
+
+The `Tuple` code example class does not use upper case type definitions, lacks the `$` variable prefix, has spaces between `Tuple` and the opening square bracket, has several errant spaces, and is missing the 'n' in `$file_download`. 
+
+It should be formatted as:
+
+```puppet
+class exampleapp (
+  Tuple[ String, Integer, String, 3, 10 ] $user_declaration,
+  Tuple[ Integer, Float, Integer ] $calculation,
+  Tuple[ Uri, String, Integer, 2 ] $file_download,
+) {
+}
+```
+
+The `skeleton` class example for the `Struct` data type is missing the `$` variable prefix, has extra spaces between hash rockets, and is missing commas after each `Struct` definition.
+
+It should be formatted as:
+
+```puppet
+class skeleton (
+  Struct[
+    {
+      mode => Enum[file, link],
+      path => String,
+    }
+  ] $config_file,
+  Struct[
+    {
+      mode            => Enum[file, link],
+      path            => String,
+      Optional[owner] => String,
+    }
+  ] $application_binary,
+  Struct[
+    {
+      mode  => Enum[file, link],
+      path  => String,
+      owner => Optional[String]
+    }
+  ] $application_startup,
+) {
+}
+```
