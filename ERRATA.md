@@ -95,7 +95,7 @@ The final bullet point for Visual Studio Code extensions references an applicati
 
 > "Augeuas is very advanced but often over-complicated ..."
 
-:notebook: (pages 24-25) The ending of the following sentence lacks a proper subject for what to develop and what to integrate with:
+:notebook: (pages 24-25) The ending of the following sentence lacks a proper subject for what to develop and what to integrate with,
 
 > One of the greatest issues with early Puppet development was the lack of a consensus around how to develop and a lack of integration.
 
@@ -221,7 +221,7 @@ In the sentence that ends,
 
 'conflict' should be either 'conflicts' or 'a conflict'.
 
-:notebook: Reader's comment for page 37:
+:notebook:
 
 > Each resource will have a type ...
 
@@ -273,7 +273,7 @@ could be written,
 
 The reference to `.bin` should instead be `.msi`.
 
-:notebook: Red Hat Enterprise Linux 8 and distributions based on RHEL 8 cannot install the `cowsay` package without first enabling EPEL.
+:notebook: Red Hat Enterprise Linux 8+ and distributions based on RHEL 8 cannot install the `cowsay` package without first enabling EPEL.
 
 #### Page 44
 
@@ -588,7 +588,7 @@ augeas { 'remove John from access.conf':
 }
 ```
 
-:notebook: The `notify` code example should have a space prior to the closing brace, as follows:
+:notebook: The `notify` code example should have a space prior to the closing brace, as follows,
 
 ```puppet
 notify { 'print a message to logs': }
@@ -790,7 +790,7 @@ Should read,
 
 #### Page 70
 
-:notebook: The `notify` code example under the "Interpolation" heading is missing spaces before and after the opening brace. It should be formatted as follows:
+:notebook: The `notify` code example under the "Interpolation" heading is missing spaces before and after the opening brace. It should be formatted as follows,
 
 ```puppet
 notify { 'debug variable':
@@ -943,7 +943,7 @@ However, the sentence is unclear as to the outcome of integer and float operatio
 
 #### Page 79
 
-:notebook: The code example at the top of the page may be easier to read with spaces surrounding the equal symbols. It could be formatted as:
+:notebook: The code example at the top of the page may be easier to read with spaces surrounding the equal symbols. It could be formatted as,
 
 ```puppet
 $string_integer = '1'
@@ -1003,7 +1003,7 @@ Should be,
 
 > For example, an array called `$example_array` containing the strings `'first'`, `'second'`, and `'third'` is declared as follows:
 
-:notebook: The mixed array code example has an errant space and should be formatted as:
+:notebook: The mixed array code example has an errant space and should be formatted as,
 
 ```puppet
 $example_boolean = false
@@ -1210,6 +1210,6 @@ Should be:
 
 #### Page 90
 
-:notebook: I am uncertain what meaning this sentence is supposed to convey:
+:notebook: I am uncertain what meaning this sentence is supposed to convey.
 
 > If only the unwrap is performed when running Puppet with debug, the command and password would be fully visible.
