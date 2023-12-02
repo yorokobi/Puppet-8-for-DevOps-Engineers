@@ -974,13 +974,13 @@ notify { "Print ${test1}": }
 
 :notebook: The sentence,
 
-> The only value an **undef** data type has is the unquoted `undef` and it is not used for parameter data typing by itself. This is because enforcing the absence of a value would have no purpose.
+> The only value an `undef` data type has is the unquoted `undef` and it is not used for parameter data typing by itself. This is because enforcing the absence of a value would have no purpose.
 
 Could be written,
 
-> The value of an **undef** data type is the unquoted keyword `undef` and it is not used for parameter data typing by itself; enforcing the absence of a value has no purpose.
+> The value of an `undef` data type is the unquoted keyword `undef` and it is not used for parameter data typing by itself; enforcing the absence of a value has no purpose.
 
-The code example for the boolean class `exampleapp` is missing the `$` variable prefix.
+The code example for the boolean class `exampleapp` is missing the `$` variable prefix for `$manage_users`.
 
 It should be formatted:
 
@@ -1078,3 +1078,137 @@ If the intent was to demonstrate that the `notify` resource will print the first
 > For example, the following `notify` resource will print the first element of the nested array:
 
 With the corrected code referring to index `[1][0]`.
+
+#### Page 84
+
+In the paragraph under the *Append* heading, the number '3' should be the string `'three'`,
+
+> To demonstrate this, let’s look at an example of an array with integers 1 and 2 as elements that appends ~~3~~ `'three'` into a new array.
+
+:notebook: The code example,
+
+```puppet
+$example_array=[1,2]
+$new_array=$example_array << 'three'
+$append_nest=$example_array << [3,4]
+```
+
+Should have spaces before and after the equal symbol:
+
+```puppet
+$example_array = [1,2]
+$new_array = $example_array << 'three'
+$append_nest = $example_array << [3,4]
+```
+
+#### Page 85
+
+The second line of the hash concatenation code example,
+
+```puppet
+$nested_hash =$example_array + [{test => 'value'}]
+```
+
+Should have a space after the equal symbol,
+
+```puppet
+$nested_hash = $example_array + [{test => 'value'}]
+```
+
+#### Page 86
+
+The `database` class code example should not quote the class name, there should be no following colon, `default` should be `Default`, `string` should be `String`, and the variables need the `$` prefix. It should be formatted as:
+
+```puppet
+class database {
+  Array[Default,1,6] $db_uids,
+  Array[String,0,5] $user_names,
+  Array $extra_flags,
+}
+```
+
+The paragraph under the "Assigning hashes" heading has several typos.
+
+> Hashes are written as comma-spaced key-value pairs separated by `=>` and the list is surrounded by curl braces, `{ }`. A trailing comma can be added after the last pair, but this is not a recommended style by this book. For example, the following hash pairs could be declined to assign the `make` key with the `skoda` string, the `model` key with the `rapid` string, and the `year` key with the `2014` integer:
+
+Should be,
+
+> Hashes are written as comma separated key-value pairs where values are assigned to keys with `=>` and the list is surrounded by curly braces, `{ }`. A trailing comma should be added after the last pair, but this is not a style recommended by this book.
+> 
+> For example, the following hash can be declared to assign the `make` key with the `'skoda'` string, the `model` key with the `'rapid'` string, and the `year` key with the `2014` integer:
+
+#### Page 87
+
+The sentence in the opening paragraph uses 'arrays' instead of 'hashes'.
+
+> Taking a final new line for the closing curly brace and lining it up with the opening curly brace is what this book recommends when writing arrays:
+
+Should be,
+
+> Taking a final new line for the closing curly brace and lining it up with the opening curly brace is what this book recommends when writing hashes:
+
+:notebook: The [Puppet language style guide's](https://www.puppet.com/docs/puppet/8/style_guide.html#arrays-hashes) recommendation for arrays and hashes is easier to read than the style recommended by this book. It also reduces the size on disk of Puppet files.
+
+```puppet
+$my_car = { make  => 'skoda',
+            model => 'rapid',
+            year  => 2014
+          }
+```
+
+Should be formatted as:
+
+```puppet
+$my_car = {
+  make  => 'skoda',
+  model => 'rapid',
+  year  => 2014,
+}
+```
+
+The `$package_list` hash example under the "Nested hashes" heading is missing a comma separating the `packages` and `services` hashes and has misaligned hash rockets.
+
+It should be formatted as:
+
+```puppet
+$package_list = {
+  packages => {
+    httpd  => 'latest',
+    cowsay => 4.0,
+  },
+  services => {
+    httpd => 'running',
+    nginx => 'stopped',
+  }
+}
+```
+
+#### Page 88
+
+:notebook: There are too many spaces in the "*Merging*" and "*Removal*" code examples.
+
+#### Page 89
+
+The `$tunables` variable in the `kernel_overrides` class example is missing the `$` variable prefix, the `integer` entry should be `Integer`, and the required curly braces `{ }`.
+
+It should be formatted as:
+
+```puppet
+class kernel_overrides (
+  Hash[String,Integer,1,10] $tunables,
+) {
+}
+```
+
+The first sentence under the heading "Mixing hashes and arrays" should drop the second use of the word 'value'; for 'array value' can be 'array element' instead.
+
+> Since the value of a hash key value or an array value can be any data type, nesting can be performed.
+
+Should be:
+
+> Since the value of a hash key or an array element can be any data type, nesting can be performed.
+
+#### Page 90
+:notebook: I am uncertain what meaning this sentence is supposed to convey:
+
+> If only the unwrap is performed when running Puppet with debug, the command and password would be fully visible.
