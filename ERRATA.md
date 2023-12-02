@@ -2,6 +2,10 @@
 
 Entries with :notebook: are my opinion.
 
+#### Entire book
+
+There are many references to `=>` but it is not called a 'hash rocket' until page 161. Given that 'hash rocket' is a common term for this combination of symbols, the use of the name should be used much earlier.
+
 #### Page 6
 
 The code example has two typos:
@@ -935,7 +939,7 @@ The example `$hex = 0x` assigns an invalid number to the `$hex` variable. It sho
 
 > Any operations between an integer and a float will result in a float and an operation on an integer, which would result in a float being rounded down to an integer.
 
-The use of 'which would' here should probably be changed to 'will' with the comma before 'which' removed:
+The use of 'which would' here should probably be changed to 'will':
 
 ... on an integer will result in ...
 
@@ -1117,13 +1121,16 @@ $nested_hash = $example_array + [{test => 'value'}]
 
 #### Page 86
 
-The `database` class code example should not quote the class name, there should be no following colon, `default` should be `Default`, `string` should be `String`, and the variables need the `$` prefix. It should be formatted as:
+The `database` class code example should not quote the class name, there should be no following colon, `default` should be `Default`, `string` should be `String`, the variables need the `$` prefix, and the entire variable block should be enclosed by parentheses.
+
+It should be formatted as:
 
 ```puppet
-class database {
+class database (
   Array[Default,1,6] $db_uids,
   Array[String,0,5] $user_names,
   Array $extra_flags,
+) {
 }
 ```
 
