@@ -1209,6 +1209,7 @@ Should be:
 > Since the value of a hash key or an array element can be any data type, nesting can be performed.
 
 #### Page 90
+
 :notebook: I am uncertain what meaning this sentence is supposed to convey:
 
 > If only the unwrap is performed when running Puppet with debug, the command and password would be fully visible.
