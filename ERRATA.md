@@ -838,7 +838,7 @@ file { '/home/david/makefile':
 }
 ```
 
-### Page 75
+#### Page 75
 
 :notebook: All of the `notify` code examples on this page should have the the colon at the end of the resource title separated from the closing brace (`'title' :}` becomes `'title': }`).
 
@@ -872,7 +872,7 @@ It should be,
 
 > This would return the substring that starts at the fourth character from the end (which corresponds to the letter 'r' in 'substring') and includes the next three characters, which in this case would be 'ing'.
 
-### Page 76
+#### Page 76
 
 The paragraph,
 
@@ -923,13 +923,13 @@ class database (
 }
 ```
 
-### Page 77
+#### Page 77
 
 The `$scientific float = 3e5` example is missing an underscore and should be `$scientific_float = 3e5`.
 
 The example `$hex = 0x` assigns an invalid number to the `$hex` variable. It should have some hexidecimal value after `0x`. For example, `$hex = 0x3a`.
 
-### Page 78
+#### Page 78
 
 :notebook: It should be noted that BODMAS is a region-specific (UK) acronym whereas other regions have different conventions: PEMDAS in the United States or BEDMAS in Canada, for example. What one region calls a bracket, another calls a parenthesis.
 
