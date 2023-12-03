@@ -4,7 +4,9 @@ Entries with :notebook: are my opinion.
 
 #### Entire book
 
-There are many references to `=>` but it is not called a 'hash rocket' until page 161. Given that 'hash rocket' is a common term for this combination of symbols, the use of the name should be used much earlier.
+There are many references to `=>` but it is not called a 'hash rocket' until page 161--and then only once. Given that 'hash rocket' is a common term for this combination of symbols, the use of the name should be used much earlier and more frequently.
+
+:notebook: The use of "will be discussed in full in Chapter *X*" is ... inaccurate. Remove "in full."
 
 #### Page 6
 
