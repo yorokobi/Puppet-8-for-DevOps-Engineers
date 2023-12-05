@@ -2,9 +2,11 @@
 
 Entries with :notebook: are my opinion.
 
-#### Entire book
+## Entire book
 
 There are many references to `=>` but it is not called a 'hash rocket' until page 161. Given that 'hash rocket' is a common term for this combination of symbols, the use of the name should be used much earlier.
+
+### Chapter 1
 
 #### Page 6
 
@@ -80,6 +82,8 @@ should instead be,
 > Normally, this means a minimum of a development environment and a production environment so changes can be tested against servers in development and then successfully tested ones can be deployed to production.
 
 :notebook: The reference to the latest version of Puppet should be changed from 7 to 8. All installation URIs appear to use Puppet 8 even though the Azure lab installs Puppet 7.
+
+### Chapter 2
 
 #### Page 20
 
@@ -166,6 +170,8 @@ In the paragraph that begins, "The key difference is that" the two words "self p
 Can be simplified to,
 
 > This section is not an exhaustive ...
+
+### Chapter
 
 #### Page 33
 
@@ -322,11 +328,11 @@ As of Puppet 7, the default digest algorithm is SHA256 [PUP-10583](https://www.p
 
 The statement,
 
-> The **purge** parameter can only be used with **ensure** set to **directory** or **recursive** set to **true** ...
+> The `purge` parameter can only be used with `ensure` set to `directory` or `recursive` set to `true` ...
 
 Should read,
 
-> The **purge** parameter can only be used with **ensure** set to **directory** or **recurse** set to **true** ...
+> The `purge` parameter can only be used with `ensure` set to `directory` or `recurse` set to `true` ...
 
 Or follow the Puppet 8 documentation entry:
 
@@ -369,15 +375,15 @@ file { '/etc/exampleapp.conf':
 
 The statement,
 
-> The replace parameter should be used sparingly, but if set to **true**, allows for a file to have content enforced only if it does not exist. If the file exists, the state is met. This can be useful for applications that require an initial configuration file but then overwrite it.
+> The replace parameter should be used sparingly, but if set to `true`, allows for a file to have content enforced only if it does not exist. If the file exists, the state is met. This can be useful for applications that require an initial configuration file but then overwrite it.
 
 Should read,
 
-> The replace parameter should be used sparingly, but if set to **false**, allows for a file to have content enforced only if it does not exist ...
+> The replace parameter should be used sparingly, but if set to `false`, allows for a file to have content enforced only if it does not exist ...
 
 From the [Puppet 8 documentation](https://www.puppet.com/docs/puppet/8/types/file.html#file-attribute-replace):
 
-> **replace**
+> __replace__
 >
 > Whether to replace a file or symlink that already exists on the local system but whose content doesn't match what the `source` or `content` attribute specifies.  Setting this to false allows file resources to initialize files without overwriting future changes.  Note that this only affects content; Puppet will still manage ownership and permissions.
 
@@ -453,7 +459,7 @@ file { 'C:/Program Files/Common Files/Example':
 
 In the statement,
 
-> The code can also be run in **noop mode**,
+> The code can also be run in __noop mode__,
 
 'mode' does not need to be in bold face.
 
@@ -480,7 +486,7 @@ The code formatting for the statement,
 > So, for example, `'DESKTOP-1MT10AJ\david`, `'BUILTIN\david'` and `david` are all treated
 the same by Puppet.
 
-Is inconsistent with missing single quotes for the first and third user names and should be formatted as: 
+Is inconsistent with missing single quotes for the first and third user names and should be formatted as:
 
 > So, for example, `'DESKTOP-1MT10AJ\david'`, `'BUILTIN\david'` and `'david'` are all treated
 the same by Puppet.
@@ -540,7 +546,7 @@ group { 'ubuntu':
 
 > We can achieve this if the command itself is already idempotent, such as `apt-get update` ...
 
-`apt-get update` is arguably *not* idempotent as the command updates a catalog file after every run and may exit with a non-zero status.
+`apt-get update` is arguably _not_ idempotent as the command updates a catalog file after every run and may exit with a non-zero status.
 
 In the paragraph,
 
@@ -717,6 +723,7 @@ exec { '/bin/echo "don\'t use this" > /tmp/badidea':
   creates => '/tmp/badidea',
 }
 ```
+
 #### Page 62
 
 :notebook: In the code example for the `default:` resource body, one array ends with a comma but the other does not.
@@ -774,6 +781,8 @@ The code example for exporting resources references a legacy fact and has too ma
 }
 ```
 
+### Chapter 4
+
 #### Page 69
 
 In the Note at the beginning of the page, the statement,
@@ -826,7 +835,7 @@ The second sentence in the paragraph that begins with, "The next section will ru
 
 #### Page 73
 
-The double-quoted string code example has the `file` resource opening brace *after* the resource title. It should be formatted as follows:
+The double-quoted string code example has the `file` resource opening brace _after_ the resource title. It should be formatted as follows:
 
 ```puppet
 $make_file_content = "hello:\n\techo \"hello world\""
@@ -1067,7 +1076,7 @@ With the code example,
 notify {"Print ${nested_array[1][0]}":}
 ```
 
-Should either be written to refer to the *second* element,
+Should either be written to refer to the _second_ element,
 
 > For example, the following `notify` resource will print the second element of `$nested_array`:
 
@@ -1077,7 +1086,7 @@ Or the code example changed thus to refer to the first element:
 notify { "Print ${nested_array[0][0]}": }
 ```
 
-If the intent was to demonstrate that the `notify` resource will print the first element of the *nested* array, it should be written as,
+If the intent was to demonstrate that the `notify` resource will print the first element of the _nested_ array, it should be written as,
 
 > For example, the following `notify` resource will print the first element of the nested array:
 
@@ -1085,7 +1094,7 @@ With the corrected code referring to index `[1][0]`.
 
 #### Page 84
 
-In the paragraph under the *Append* heading, the number '3' should be the string `'three'`,
+In the paragraph under the _Append_ heading, the number '3' should be the string `'three'`,
 
 > To demonstrate this, let’s look at an example of an array with integers 1 and 2 as elements that appends ~~3~~ `'three'` into a new array.
 
@@ -1141,7 +1150,7 @@ The paragraph under the "Assigning hashes" heading has several typos.
 Should be,
 
 > Hashes are written as comma separated key-value pairs where values are assigned to keys with `=>` and the list is surrounded by curly braces, `{ }`. A trailing comma should be added after the last pair, but this is not a style recommended by this book.
-> 
+>
 > For example, the following hash can be declared to assign the `make` key with the `'skoda'` string, the `model` key with the `'rapid'` string, and the `year` key with the `2014` integer:
 
 #### Page 87
@@ -1192,7 +1201,7 @@ $package_list = {
 
 #### Page 88
 
-:notebook: There are too many spaces in the "*Merging*" and "*Removal*" code examples.
+:notebook: There are too many spaces in the "_Merging_" and "_Removal_" code examples.
 
 #### Page 89
 
@@ -1253,7 +1262,7 @@ The sentence,
 
 Does not agree with the code example. It claims "one string up to eight characters" but the code example has no reference to eight. The way the example is written, it defines the `$user_declaration` variable as an array comprising a `String`, an `Integer`, and another `String` with a minimum of those three elements and a maximum of ten `String` type elements (the last defined type).
 
-The `Tuple` code example class does not use upper case type definitions, lacks the `$` variable prefix, has spaces between `Tuple` and the opening square bracket, has several errant spaces, and is missing the 'n' in `$file_download`. 
+The `Tuple` code example class does not use upper case type definitions, lacks the `$` variable prefix, has spaces between `Tuple` and the opening square bracket, has several errant spaces, and is missing the 'n' in `$file_download`.
 
 It should be formatted as:
 
@@ -1295,3 +1304,25 @@ class skeleton (
 ) {
 }
 ```
+
+### Chapter 5
+
+### Chapter 6
+
+### Chapter 7
+
+### Chapter 8
+
+### Chapter 9
+
+### Chapter 10
+
+### Chapter 11
+
+### Chapter 12
+
+### Chapter 13
+
+### Chapter 14
+
+### Chapter 15
