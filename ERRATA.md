@@ -1305,7 +1305,6 @@ class skeleton (
   ] $application_startup,
 ) {
 }
-<<<<<<< HEAD
 ```
 
 ### Chapter 5
@@ -1329,8 +1328,3 @@ class skeleton (
 ### Chapter 14
 
 ### Chapter 15
-||||||| 8fc4b26
-```
-=======
-```
->>>>>>> 5a7fb6f8e5d981eac1e7b6dcdc7f41a49639e13b
