@@ -6,7 +6,7 @@ For format details, see https://aka.ms/devcontainer.json.
 For config options, see the README at:
 https://github.com/microsoft/vscode-dev-containers/tree/v0.140.1/containers/puppet
  
-``` json
+```json
 {
 	"name": "Puppet Development Kit (Community)",
 	"dockerFile": "Dockerfile",
@@ -33,6 +33,3 @@ https://github.com/microsoft/vscode-dev-containers/tree/v0.140.1/containers/pupp
 	"postCreateCommand": "pdk --version",
 }
 ```
-
-
-

@@ -3,7 +3,7 @@ node default {
   # Example:
   include docker
   class { 'hdm':
-    hostname => $facts['hostname'],
+    hostname => $trusted['hostname'],
     version  => '1.0.1',
   }
   file { '/var/tmp/secret_example':

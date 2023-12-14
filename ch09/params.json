@@ -10,7 +10,6 @@
     "windows_node_count" : 2,
     "console_password" : "puppetlabs",
     "windows_password" : "Pupp3tL@b5P0rtl@nd!",
-    "replica" : false,
     "firewall_allow" : [ "0.0.0.0/0" ],
     "cloud_region" : "uksouth",
     "extra_peadm_params" : {

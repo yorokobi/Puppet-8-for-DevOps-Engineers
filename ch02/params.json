@@ -3,11 +3,11 @@
     "replica" : false,
     "version" : "2021.7.3",
     "architecture" : "standard",
-    "project"       : "packtpuppet",
+    "project" : "packtpuppet",
     "ssh_user" : "centos",
     "provider" : "azure",
     "node_count" : 1,
-    "windows_node_count" 1,
+    "windows_node_count" : 1,
     "firewall_allow" : [ "0.0.0.0/0" ],
-    "cloud_region" : "uksouth",
+    "cloud_region" : "uksouth"
 }

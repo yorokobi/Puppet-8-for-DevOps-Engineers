@@ -6,7 +6,7 @@
 #   include mistakemodule::config
 class mistakemodule::config {
   file { '/etc/mistakeconfig':
-    ensure => file,
+    ensure  => file,
     content => 'This is just dummy content',
   }
 }

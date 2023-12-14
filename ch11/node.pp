@@ -1,3 +1,3 @@
-node /windows-node/ { 
-    include icinga2
+node /windows-node/ {
+  include icinga2
 } 

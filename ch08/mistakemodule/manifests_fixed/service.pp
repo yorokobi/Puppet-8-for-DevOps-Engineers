@@ -6,7 +6,7 @@
 #   include mistakemodule::service
 class mistakemodule::service {
   service { 'mistake':
-    ensure => 'present',
+    ensure => present,
     enable => true,
   }
 }

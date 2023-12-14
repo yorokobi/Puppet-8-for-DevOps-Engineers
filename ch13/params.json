@@ -3,12 +3,11 @@
     "replica" : false,
     "version" : "2021.7.2",
     "architecture" : "large",
-    "project"       : "packtpuppet",
+    "project" : "packtpuppet",
     "ssh_user" : "centos",
     "provider" : "azure",
     "node_count" : 3,
     "compiler_count" : 3,
-    "replica" : true,
     "firewall_allow" : [ "0.0.0.0/0" ],
     "cloud_region" : "uksouth",
     "extra_peadm_params" : {

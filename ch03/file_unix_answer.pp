@@ -10,7 +10,7 @@ file { '/etc/sudoers.d/mongodb':
   validate_cmd => '/sbin/visudo -c',
   owner        => 'root',
   group        => 'root',
-  mode         => '0660'
+  mode         => '0660',
 }
 
 file { '/opt/mongodb/mongos':

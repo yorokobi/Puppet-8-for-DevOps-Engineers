@@ -1,6 +1,5 @@
-user {
-  ['exampleappdev','exampleapptest','exampleappprod']:
-  gid => 'exampleapp'
+user { ['exampleappdev','exampleapptest','exampleappprod']:
+  gid => 'exampleapp',
 }
 
 User['exampleappprod'] {
@@ -8,11 +7,11 @@ User['exampleappprod'] {
 }
 
 group { 'exampleapp':
-  ensure => 'present'
+  ensure => 'present',
 }
 
-resources  { 'user':
+resources { 'user':
   purge              => true,
   unless_system_user => true,
-  noop               => true
+  noop               => true,
 }

@@ -1,13 +1,13 @@
 package { 'activerecord':
   ensure  => '> 7',
-  provide => 'gem'
+  provide => 'gem',
 }
 
 package { 'cowsay':
-  ensure => 'latest'
+  ensure => 'latest',
 }
 
 package { 'fun games':
   ensure => '2005-xp',
-  name   => 'pinball'
+  name   => 'pinball',
 }

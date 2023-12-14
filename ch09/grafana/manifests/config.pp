@@ -6,7 +6,7 @@
 #   include grafana::config
 class grafana::config {
   file { 'grafana.ini':
-    ensure  => 'file',
+    ensure  => file,
     content => "[server]\nprotocol = HTTP\nhttp_port = ${grafana::port}",
     *       => $grafana::file_options,
   }

@@ -3,7 +3,7 @@ class lab6_1 {
   contain lab6_1::config
   contain lab6_1::service
 
-  Class['lab6_1::install'] -> Class['lab6_1::config'] ~> Class['lab6_1::service']
+  Class['lab6_1::install'] -> Class['lab6_1::config'] ~> Class['lab6_1::service'],
 
 }
 
@@ -31,13 +31,13 @@ class lab6_1::config {
 
   file { '/etc/exampleapp':
     ensure => directory,
-	owner  => 'exampleuser',
+    owner  => 'exampleuser',
     group  => 'examplegroup',
   }
   
   user { 'exampleuser':
     ensure => present,
-	gid    => 'examplegroup',
+    gid    => 'examplegroup',
   }
   
   group { 'examplegroup':
@@ -52,7 +52,7 @@ class lab6_1::service {
   }
 
   service { 'exampleapp':
-    ensure   => 'running',
+    ensure => running,
   }
 }
 

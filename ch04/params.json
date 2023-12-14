@@ -3,7 +3,7 @@
     "replica" : false,
     "version" : "2021.7.2",
     "architecture" : "standard",
-    "project"       : "packtpuppet",
+    "project" : "packtpuppet",
     "ssh_user" : "centos",
     "provider" : "azure",
     "node_count" : 1,

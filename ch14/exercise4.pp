@@ -5,7 +5,9 @@ node_group { 'All client patching':
   override_environment => 'false',
   parent               => 'PE Patch Management',
   provider             => 'https',
-  rule                 => ['or',
-  ['=', 'name', 'pe-node-848361-0.us-west1-a.c.davidsand.internal'],
-  ['=', 'name', 'pe-compiler-848361-0.us-west1-a.c.davidsand.internal']],
+  rule                 => [
+    'or',
+    ['=', 'name', 'pe-node-848361-0.us-west1-a.c.davidsand.internal'],
+    ['=', 'name', 'pe-compiler-848361-0.us-west1-a.c.davidsand.internal']
+  ],
 }

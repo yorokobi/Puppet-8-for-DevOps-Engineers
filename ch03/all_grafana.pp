@@ -4,10 +4,10 @@ case $facts['os']['family'] {
       'source' => 'https://dl.grafana.com/oss/release/grafana-8.4.3.windows-amd64.msi'
     }
     $service options = {
-      'logonaccount' => 'LocalSystem'
+      'logonaccount' => 'LocalSystem',
     }
     $file_options = {
-      'name' => 'C:\Program Files\GrafanaLabs\grafana\conf\grafana.ini'
+      'name' => 'C:/Program Files/GrafanaLabs/grafana/conf/grafana.ini',
     }
   }
   default:  {
@@ -16,24 +16,24 @@ case $facts['os']['family'] {
     }
     $service options = ''
     $file_options = {
-      'name' => '/etc/grafana/grafana.ini '
+      'name' => '/etc/grafana/grafana.ini',
     }
   }
 }
 
 package { 'grafana':
-  * => $package_options
+  * => $package_options,
 }
 service { 'grafana':
   ensure  => 'running',
   enable  => 'true',
   require => Package['grafana'],
-  *       => $service_options
+  *       => $service_options,
 }
 file { 'grafana.ini':
   ensure  => 'file',
   content => '[server]\nprotocol = HTTP\nhttp_port = 8080',
   notify  => Service['grafana'],
   require => Package['grafana'],
-  *       => $file_options
+  *       => $file_options,
 }
