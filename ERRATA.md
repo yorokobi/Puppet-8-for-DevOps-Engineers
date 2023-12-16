@@ -225,7 +225,7 @@ can be written to add emphasis the word 'also' to make it clear to the reader th
 
 Example,
 
-> This example has its dangers. If the declaration for `user2` ___also___ used `group1`, this would result in a duplicated resource declaration for `group1`.
+> This example has its dangers. If the declaration for `user2` ***also*** used `group1`, this would result in a duplicated resource declaration for `group1`.
 
 In the sentence that ends,
 
@@ -385,7 +385,7 @@ Should read,
 
 From the [Puppet 8 documentation](https://www.puppet.com/docs/puppet/8/types/file.html#file-attribute-replace):
 
-> __replace__
+> **replace**
 >
 > Whether to replace a file or symlink that already exists on the local system but whose content doesn't match what the `source` or `content` attribute specifies.  Setting this to false allows file resources to initialize files without overwriting future changes.  Note that this only affects content; Puppet will still manage ownership and permissions.
 
@@ -461,7 +461,7 @@ file { 'C:/Program Files/Common Files/Example':
 
 In the statement,
 
-> The code can also be run in __noop mode__,
+> The code can also be run in **noop mode**,
 
 'mode' does not need to be in bold face.
 
@@ -548,7 +548,7 @@ group { 'ubuntu':
 
 > We can achieve this if the command itself is already idempotent, such as `apt-get update` ...
 
-`apt-get update` is arguably _not_ idempotent as the command updates a catalog file after every run and may exit with a non-zero status.
+`apt-get update` is arguably *not* idempotent as the command updates a catalog file after every run and may exit with a non-zero status.
 
 In the paragraph,
 
@@ -837,7 +837,7 @@ The second sentence in the paragraph that begins with, "The next section will ru
 
 #### Page 73
 
-The double-quoted string code example has the `file` resource opening brace _after_ the resource title. It should be formatted as follows:
+The double-quoted string code example has the `file` resource opening brace *after* the resource title. It should be formatted as follows:
 
 ```puppet
 $make_file_content = "hello:\n\techo \"hello world\""
@@ -1078,7 +1078,7 @@ With the code example,
 notify {"Print ${nested_array[1][0]}":}
 ```
 
-Should either be written to refer to the _second_ element,
+Should either be written to refer to the *second* element,
 
 > For example, the following `notify` resource will print the second element of `$nested_array`:
 
@@ -1088,7 +1088,7 @@ Or the code example changed thus to refer to the first element:
 notify { "Print ${nested_array[0][0]}": }
 ```
 
-If the intent was to demonstrate that the `notify` resource will print the first element of the _nested_ array, it should be written as,
+If the intent was to demonstrate that the `notify` resource will print the first element of the *nested* array, it should be written as,
 
 > For example, the following `notify` resource will print the first element of the nested array:
 
@@ -1096,7 +1096,7 @@ With the corrected code referring to index `[1][0]`.
 
 #### Page 84
 
-In the paragraph under the _Append_ heading, the number '3' should be the string `'three'`,
+In the paragraph under the *Append* heading, the number '3' should be the string `'three'`,
 
 > To demonstrate this, let’s look at an example of an array with integers 1 and 2 as elements that appends ~~3~~ `'three'` into a new array.
 
@@ -1203,7 +1203,7 @@ $package_list = {
 
 #### Page 88
 
-:notebook: There are too many spaces in the "_Merging_" and "_Removal_" code examples.
+:notebook: There are too many spaces in the "*Merging*" and "*Removal*" code examples.
 
 #### Page 89
 
