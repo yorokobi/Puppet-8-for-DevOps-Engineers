@@ -264,12 +264,12 @@ The code example has one typo:
 
 ```puppet
 $apache_package_name = $facts['os']['family']? {
-  'Red Hat' => 'httpd',
-  default   => 'apache2',
+  'Red Hat' => 'httpd',
+  default   => 'apache2',
 }
 package { 'apache':
-  ensure => latest,
-  name   => $apache_package_name,
+  ensure => latest,
+  name   => $apache_package_name,
 }
 ```
 
@@ -346,10 +346,10 @@ The `recurse` example has incorrect spacing and `ensure => directory` does not n
 
 ```puppet
 file { 'Remove apache config files outside of puppet control':
-  ensure  => directory,
-  purge   => true,
-  recurse => true,
-  path    => '/etc/httpd/conf',
+  ensure  => directory,
+  purge   => true,
+  recurse => true,
+  path    => '/etc/httpd/conf',
 }
 ```
 
@@ -357,9 +357,9 @@ The `target` example has incorrect spacing and is missing quotes for the `path` 
 
 ```puppet
 file { 'Picking a Python on RHEL 8':
-  ensure  => link,
-  path    => '/usr/bin/python3',
-  target  => '/usr/bin/python',
+  ensure => link,
+  path   => '/usr/bin/python3',
+  target => '/usr/bin/python',
 }
 ```
 
@@ -367,11 +367,11 @@ The following is not a correction; however, the Puppet language style guide woul
 
 ```puppet
 file { '/etc/exampleapp.conf':
-  source => [
-    "nfsserver:///exampleapp/conf.${host}",
-    "nfsserver:///exampleapp/conf.${operatingsystem}",
-    'nfsserver:///exampleapp/conf',
-  ]
+  source => [
+    "nfsserver:///exampleapp/conf.${host}",
+    "nfsserver:///exampleapp/conf.${operatingsystem}",
+    'nfsserver:///exampleapp/conf',
+  ]
 }
 ```
 
@@ -421,11 +421,11 @@ The formatting for the legacy service example should be:
 
 ```puppet
 service { 'legacy service':
-  ensure  => running,
-  enable  => true,
-  start   => '/opt/legacyapp/startlegacy -e production',
-  stop    => '/opt/legacyapp/stoplegacy -e production',
-  status  => '/opt/legacyapp/legacystatus -e production',
+  ensure => running,
+  enable => true,
+  start  => '/opt/legacyapp/startlegacy -e production',
+  stop   => '/opt/legacyapp/stoplegacy -e production',
+  status => '/opt/legacyapp/legacystatus -e production',
 }
 ```
 
@@ -435,19 +435,19 @@ There are two formatting corrections for the `metaparameters` code example. Ther
 
 ```puppet
 package { 'example app package':
-  ensure => latest,
-  name   => 'exampleapp',
-  before => File['example app configuration'],
+  ensure => latest,
+  name   => 'exampleapp',
+  before => File['example app configuration'],
 }
 file { 'example app configuration':
-  content => 'attribute=value',
-  notify  => Service['example app service'],
+  content => 'attribute=value',
+  notify  => Service['example app service'],
 }
 service { 'example app service':
-  name    => 'exampleapp',
-  enable  => true,
-  ensure  => running,
-  require => Package['example app package'],
+  name    => 'exampleapp',
+  enable  => true,
+  ensure  => running,
+  require => Package['example app package'],
 }
 ```
 
@@ -514,10 +514,10 @@ group { 'Users':
   ],
 }
 user { 'ubuntu':
-  ensure             => present,
-  comment            => 'Ubuntu',
-  gid                => 1000,
-  groups             => [
+  ensure             => present,
+  comment            => 'Ubuntu',
+  gid                => 1000,
+  groups             => [
     'adm',
     'dialout',
     'cdrom',
@@ -845,7 +845,7 @@ The double-quoted string code example has the `file` resource opening brace *aft
 $make_file_content = "hello:\n\techo \"hello world\""
 
 file { '/home/david/makefile':
-  content => $make_file_content,
+  content => $make_file_content,
 }
 ```
 
@@ -927,9 +927,9 @@ It should be formatted:
 
 ```puppet
 class database (
-  String $description,
-  String[4,4] $database_id,
-  String[6,8] $username = 'dbuser',
+  String $description,
+  String[4,4] $database_id,
+  String[6,8] $username = 'dbuser',
 ) {
 }
 ```
@@ -1192,14 +1192,14 @@ It should be formatted as:
 
 ```puppet
 $package_list = {
-  packages => {
-    httpd  => 'latest',
-    cowsay => 4.0,
-  },
-  services => {
-    httpd => 'running',
-    nginx => 'stopped',
-  }
+  packages => {
+    httpd  => 'latest',
+    cowsay => 4.0,
+  },
+  services => {
+    httpd => 'running',
+    nginx => 'stopped',
+  }
 }
 ```
 
