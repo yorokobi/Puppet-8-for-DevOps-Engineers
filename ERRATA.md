@@ -421,11 +421,11 @@ The formatting for the legacy service example should be:
 
 ```puppet
 service { 'legacy service':
-  ensure => running,
-  enable => true,
-  start  => '/opt/legacyapp/startlegacy -e production',
-  stop   => '/opt/legacyapp/stoplegacy -e production',
-  status => '/opt/legacyapp/legacystatus -e production',
+  ensure => running,
+  enable => true,
+  start  => '/opt/legacyapp/startlegacy -e production',
+  stop   => '/opt/legacyapp/stoplegacy -e production',
+  status => '/opt/legacyapp/legacystatus -e production',
 }
 ```
 
@@ -514,10 +514,10 @@ group { 'Users':
   ],
 }
 user { 'ubuntu':
-  ensure             => present,
-  comment            => 'Ubuntu',
-  gid                => 1000,
-  groups             => [
+  ensure             => present,
+  comment            => 'Ubuntu',
+  gid                => 1000,
+  groups             => [
     'adm',
     'dialout',
     'cdrom',
@@ -1308,6 +1308,83 @@ class skeleton (
 ) {
 }
 ```
+
+#### Page 94
+
+The sentences in the paragraph under the Scope heading,
+
+> ... For example, variables can be declared in the site.pp manifest file within a Puppet environment to make them globally available to all nodes. Alternatively, variables can be declared in a node definition in site.pp or the ENC to be made available at the node level for a particular server or group of servers. ...
+
+Are redundant restatements of the sentences preceding them.
+
+#### Page 95
+
+:notebook: In the sentence,
+
+> ... We will use two notify resources to demonstrate how variable scope works.
+
+'variable scope' could mean variations with scope. A more concise phrase is "how scope works with Puppet variables."
+
+:notebook: The following sentence,
+
+> The first notify resource prints '`Print override`', showing that the '`global`' local variable has overridden the global value.
+
+Should be written,
+
+> The first notify resource prints '`Print override`', showing that the local variable '`global`' has overridden the global value.
+
+Thus making the scope of the `global` variable more clear.
+
+> The third notify resource prints '`Print node`' ...
+
+Should be,
+
+> The third notify resource prints '`Print mynode`' ...
+
+In the sentence,
+
+> In the '`also_local`' class, we define a new variable called '`another_global`' with a string value of '`another world`'.
+
+Neither the variable `$another_global` nor the value `another world` are used.
+
+:notebook: The example code uses the variable `$node`, which is a reserved word. While it is allowed, it should be avoided.
+
+The example code for the `local` class:
+
+```puppet
+class local
+{
+$global = 'override'
+  notify {"Print ${global}":}
+  notify {"Print ${::global}":}
+  notify {"Print ${node}":}
+}
+```
+
+Should be formatted,
+
+```puppet
+class local {
+  $global = 'override'
+  notify { "Print ${global}": }
+  notify { "Print ${::global}": }
+  notify { "Print ${node}": }
+}
+```
+
+#### Page 96
+
+The use of "After" to begin the sentence,
+
+> After, we reviewed how Puppet variables can be declared at different scopes and how variables can be shared/seen in different scopes.
+
+Should instead be "Finally" as it is the final summary element.
+
+In the sentence in the final paragraph that begins,
+
+> We will cover built-in functions and functions from the standard `lib` module, from Puppet Forge ...
+
+The reference to "standard `lib`" should be "`stdlib`".
 
 ### Chapter 5
 
