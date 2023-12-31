@@ -389,7 +389,7 @@ From the [Puppet 8 documentation](https://www.puppet.com/docs/puppet/8/types/fil
 
 > **replace**
 >
-> Whether to replace a file or symlink that already exists on the local system but whose content doesn't match what the `source` or `content` attribute specifies.  Setting this to false allows file resources to initialize files without overwriting future changes.  Note that this only affects content; Puppet will still manage ownership and permissions.
+> Whether to replace a file or symlink that already exists on the local system but whose content doesn't match what the `source` or `content` attribute specifies.  Setting this to false allows file resources to initialize files without overwriting future changes. Note that this only affects content; Puppet will still manage ownership and permissions.
 
 #### Page 48
 
@@ -397,13 +397,13 @@ For the `service` example, the values for `enable` do not need to be quoted and 
 
 ```puppet
 service { 'wuauserv':
-  ensure       => running,
-  enable       => delayed,
-  logonaccount => 'LocalSystem',
+  ensure       => running,
+  enable       => delayed,
+  logonaccount => 'LocalSystem',
 }
 service { 'bam':
-  ensure => stopped,
-  enable => false,
+  ensure => stopped,
+  enable => false,
 }
 ```
 
@@ -455,7 +455,7 @@ The resource type dependency array example has two formatting corrections: there
 
 ```puppet
 file { 'C:/Program Files/Common Files/Example':
-  require => Package['package1', 'package2'],
+  require => Package['package1', 'package2'],
 }
 ```
 
@@ -499,15 +499,15 @@ The Windows and Unix account and group code example contains a number of formatt
 
 ```puppet
 user { 'david':
-  ensure => present,
-  groups => [
+  ensure => present,
+  groups => [
     'BUILTIN\Administrators',
     'BUILTIN\Users',
   ],
 }
 group { 'Users':
-  ensure  => present,
-  members => [
+  ensure => present,
+  members => [
     'NT AUTHORITY\INTERACTIVE',
     'NT AUTHORITY\Authenticated Users',
     'DESKTOP-1MT10AJ\david',
@@ -530,17 +530,17 @@ user { 'ubuntu':
     'lxd',
     'netdev',
   ],
-  home               => '/home/ubuntu',
-  password           => '!',
-  password_max_age   => 99999,
-  password_min_age   => 0,
-  password_warn_days => 7,
-  shell              => '/bin/bash',
-  uid                => 1000,
+  home               => '/home/ubuntu',
+  password           => '!',
+  password_max_age   => 99999,
+  password_min_age   => 0,
+  password_warn_days => 7,
+  shell              => '/bin/bash',
+  uid                => 1000,
 }
 group { 'ubuntu':
-  ensure => present,
-  gid    => 1000,
+  ensure => present,
+  gid    => 1000,
 }
 ```
 
@@ -565,14 +565,14 @@ In the `exec` code example for disabling public Chocolatey access, the hash rock
 There are too many spaces for the third `exec` code scenario. The example should be formatted as follows:
 
 ```puppet
-exec { 'refresh exampleapp configuration':
-  command     => '/bin/exampleapp/rereadconfig',
-  refreshonly => true,
-  subscribe   => File['config file'],
+exec { 'refresh exampleapp configuration':
+  command     => '/bin/exampleapp/rereadconfig',
+  refreshonly => true,
+  subscribe   => File['config file'],
 }
 file { 'config file':
-  path    => '/etc/exampleapp/configfile',
-  content => 'setting 1 = value',
+  path    => '/etc/exampleapp/configfile',
+  content => 'setting 1 = value',
 }
 ```
 
@@ -587,8 +587,8 @@ The parameterized `exec` code example has a typo for 'parameterized', has too ma
 The example should be formatted as follows:
 
 ```puppet
-exec { 'parameterized command':
-  command => ['/bin/echo', 'real parameters; rm -rf /'],
+exec { 'parameterized command':
+  command => ['/bin/echo', 'real parameters; rm -rf /'],
 }
 ```
 
@@ -598,7 +598,7 @@ The Augeas code example has too many spaces and the resource type should be lowe
 
 ```puppet
 augeas { 'remove John from access.conf':
-  changes => 'rm /files/etc/security/access.conf/*[user="john"]',
+  changes => 'rm /files/etc/security/access.conf/*[user="john"]',
 }
 ```
 
@@ -614,8 +614,8 @@ The `audit` code example has too many spaces and the resource title does not end
 
 ```puppet
 file { '/var/tmp/example':
-  mode  => '0770',
-  audit => [owner,group],
+  mode  => '0770',
+  audit => [owner,group],
 }
 ```
 
@@ -625,15 +625,15 @@ The example code for `tag` has too many spaces before the hash rockets, the valu
 
 ```puppet
 class example::access {
-  group { 'ubuntu':
-    ensure => present,
-    gid    => 1000,
-    tag    => ['pci','sox'],
-  }
-  user { 'ubuntu':
-    ensure => present,
-    tag    => 'pci',
-  }
+  group { 'ubuntu':
+    ensure => present,
+    gid    => 1000,
+    tag    => ['pci','sox'],
+  }
+  user { 'ubuntu':
+    ensure => present,
+    tag    => 'pci',
+  }
 }
 ```
 
@@ -641,8 +641,8 @@ The `resources` metatype code example does not follow the [Puppet language style
 
 ```puppet
 resources { 'user':
-  purge => true,
-  noop  => true,
+  purge => true,
+  noop  => true,
 }
 ```
 
@@ -652,9 +652,9 @@ Spacing in the array of titles code example is invalid and does not match the st
 
 ```puppet
 file { ['/opt/example1','/opt/example1/etc','/opt/example1/bin']:
-  owner => 'user',
-  group => 'user',
-  mode  => '0750',
+  owner => 'user',
+  group => 'user',
+  mode  => '0750',
 }
 ```
 
@@ -662,8 +662,8 @@ The overriding parameters code example has too many spaces before the hash rocke
 
 ```puppet
 File ['/opt/example/bin/'] {
-  group => 'other_group',
-  audit => true,
+  group => 'other_group',
+  audit => true,
 }
 ```
 
@@ -673,20 +673,20 @@ Indentation for the example `case` statement for the splat attribute is inconsis
 
 ```puppet
 case $facts['os']['name'] {
-  /^(Debian|Ubuntu)$/: {
-    $package_options = {
-      'name' => 'apache2'
-    }
-  }
-  default: {
-    $package_options = {
-      'name' => 'httpd'
-    }
-  }
+  /^(Debian|Ubuntu)$/: {
+    $package_options = {
+      'name' => 'apache2'
+    }
+  }
+  default: {
+    $package_options = {
+      'name' => 'httpd'
+    }
+  }
 }
 package { 'http':
   ensure => latest,
-  *      => $package_options,
+  *      => $package_options,
 }
 ```
 
@@ -724,7 +724,7 @@ Likewise, the simple translation should be formatted as follows:
 
 ```puppet
 exec { '/bin/echo "don\'t use this" > /tmp/badidea':
-  creates => '/tmp/badidea',
+  creates => '/tmp/badidea',
 }
 ```
 
@@ -736,9 +736,9 @@ The code example for the "Resource default syntax" uses a lower case 'f' for `fi
 
 ```puppet
 File {
-  owner => 'exampleapp',
-  group => 'exampleapp',
-  mode  => '0660',
+  owner => 'exampleapp',
+  group => 'exampleapp',
+  mode  => '0660',
 }
 ```
 
@@ -746,14 +746,14 @@ The `schedule` code examples also have too many spaces before or within the hash
 
 ```puppet
 schedule { 'Friday Night':
-  day   => 'Friday',
-  range => '18 - 9',
+  day   => 'Friday',
+  range => '18 - 9',
 }
 ```
 
 ```puppet
 exec { '/bin/echo weekend start > /tmp/example':
-  schedule => 'Friday Night',
+  schedule => 'Friday Night',
 }
 ```
 
@@ -779,9 +779,9 @@ The code example for exporting resources references a legacy fact and has too ma
 
 ```puppet
 @@host { "Oracle database host entry ${trusted['hostname']}" :
-  name => 'dbserver1',
-  ip   => '192.168.0.6',
-  tag  => 'oracle',
+  name => 'dbserver1',
+  ip   => '192.168.0.6',
+  tag  => 'oracle',
 }
 ```
 
@@ -811,7 +811,7 @@ Should read,
 
 ```puppet
 notify { 'debug variable':
-  message => "The database directory is ${database_directory}",
+  message => "The database directory is ${database_directory}",
 }
 ```
 
@@ -819,8 +819,8 @@ The code example under the "Data types" heading is missing the `$` variable pref
 
 ```puppet
 class example (
-  String $example_string = 'hello world',
-  Integer $example_integer = 1,
+  String $example_string = 'hello world',
+  Integer $example_integer = 1,
 ) {
 }
 ```
@@ -1003,10 +1003,10 @@ It should be formatted:
 
 ```puppet
 class exampleapp (
-  Boolean $manage_users = true,
+  Boolean $manage_users = true,
 ) {
-  $install_ssh = true
-  $install_telnet = false
+  $install_ssh = true
+  $install_telnet = false
 }
 ```
 
@@ -1140,9 +1140,9 @@ It should be formatted as:
 
 ```puppet
 class database (
-  Array[Default,1,6] $db_uids,
-  Array[String,0,5] $user_names,
-  Array $extra_flags,
+  Array[Default,1,6] $db_uids,
+  Array[String,0,5] $user_names,
+  Array $extra_flags,
 ) {
 }
 ```
@@ -1170,19 +1170,19 @@ Should be,
 :notebook: The [Puppet language style guide's](https://www.puppet.com/docs/puppet/8/style_guide.html#arrays-hashes) recommendation for arrays and hashes is easier to read than the style recommended by this book. It also reduces the size on disk of Puppet files.
 
 ```puppet
-$my_car = { make  => 'skoda',
-            model => 'rapid',
-            year  => 2014
-          }
+$my_car = { make  => 'skoda',
+            model => 'rapid',
+            year  => 2014
+          }
 ```
 
 Should be formatted as:
 
 ```puppet
 $my_car = {
-  make  => 'skoda',
-  model => 'rapid',
-  year  => 2014,
+  make  => 'skoda',
+  model => 'rapid',
+  year  => 2014,
 }
 ```
 
@@ -1215,7 +1215,7 @@ It should be formatted as:
 
 ```puppet
 class kernel_overrides (
-  Hash[String,Integer,1,10] $tunables,
+  Hash[String,Integer,1,10] $tunables,
 ) {
 }
 ```
@@ -1288,21 +1288,21 @@ class skeleton (
   Struct[
     {
       mode => Enum[file, link],
-      path => String,
+      path => String,
     }
   ] $config_file,
   Struct[
     {
-      mode            => Enum[file, link],
-      path            => String,
-      Optional[owner] => String,
+      mode            => Enum[file, link],
+      path            => String,
+      Optional[owner] => String,
     }
   ] $application_binary,
   Struct[
     {
-      mode  => Enum[file, link],
-      path  => String,
-      owner => Optional[String]
+      mode  => Enum[file, link],
+      path  => String,
+      owner => Optional[String]
     }
   ] $application_startup,
 ) {
@@ -1387,6 +1387,118 @@ In the sentence in the final paragraph that begins,
 The reference to "standard `lib`" should be "`stdlib`".
 
 ### Chapter 5
+
+#### Page 99
+
+:notebook: In the sentence,
+
+> When Puppet is run, either via the agent or by running `puppet apply` on the command line, Facter will run, with legacy facts, disabled in Puppet 8 or enabled in Puppet 7 and below and the output will be assigned to global variables.
+
+The two commas surrounding "with legacy facts" are not necessary or should follow "Puppet 8". A comma after "and below" makes more sense.
+
+> When Puppet is run, either via the agent or by running `puppet apply` on the command line, Facter will run with legacy facts disabled in Puppet 8 or enabled in Puppet 7 and below, and the output will be assigned to global variables.
+
+:notebook: The reference to the `$facts` array in this sentence,
+
+> These variables can then be accessed in Puppet manifests in two ways – either directly by the name of the fact on a global variable or via the facts array.
+
+May instead be formatted (and passive voice removed):
+
+> These variables are accessed in Puppet manifests in two ways – either directly by the name of the fact on a global variable or via the `$facts` array.
+
+The sentence,
+
+> For example, in the following code, the notify resources would access the `kernel` and `os family` variables and print logging messages containing the kernel and os families of the host it was run on:
+
+Refers to the `os.family` fact as `os family` and calls them variables instead of facts. It should be,
+
+> For example, in the following code, the notify resources would access the `kernel` and `os.family` facts and print logging messages containing the kernel and os family of the host it was run on:
+
+The subsequent code example does not properly refer to elements of the `$facts` hash, lacking the single quoted hash keys as well as the closing brace for the `os.family` fact reference. It should be formatted:
+
+```puppet
+notify { "This client's kernel is ${facts['kernel']}": }
+notify { "This client is a member of the os family ${facts['os']['family']}": }
+```
+
+### Page 100
+
+The indentation for the example `factor.conf` is inconsistent.
+
+### Page 101
+
+:notebook: In the sentence,
+
+> The cli section sets a log level with a string of (`none`, `trace`, `debug`, `info`, `warn`, `error`, `fatal`) and has three options: `verbose`, `trace`, and `debug`. Each of these three options is enabled or disabled with a `true` or `false` Boolean.
+
+The list of logging levels does not need parentheses and the paragraph can be simplified thus,
+
+> The CLI section sets the log level with a value of `none`, `trace`, `debug`, `info`, `warn`, `error`, or `fatal` and has three Boolean options: `verbose`, `trace`, or `debug`, which are enabled or disabled with either `true` or `false`.
+
+#### Page 102
+
+The conclusion of the note at the top of the page does not need the word "basis."
+
+The sentence,
+
+> In Chapter 8, you will learn how external facts can be distributed to clients from modules via the plugin sync process, where facts are added from modules contained in a `facts.d` folder within the module.
+
+Can be simplified by removing ", where facts are added from modules contained."
+
+#### Page 103
+
+In the note,
+
+> Puppet can be run as a non-root user on UNIX-based systems, while external facts can be stored in `~/.facter/facts.d/` ...
+
+The use of "while" should be "with." For example, with passive voice removed:
+
+> Puppet can run as a non-root user on UNIX-based systems with external facts stored in `~/.facter/facts.d/`.
+
+The YAML-formatted external facts example does not pass `yamllint` due to too many spaces before and, in the case of `Application`, after the colons. It should be formatted:
+
+```yaml
+---
+Application: exampleapp
+Use: Production
+Owner: exampleorg
+...
+```
+
+:notebook: The JSON-formatted external facts is easier to read when formatted as:
+
+```json
+{
+  "Application": "exampleapp",
+  "Use": "Production",
+  "Owner": "exampleorg"
+}
+```
+
+:notebook: The paragraph about Windows line endings could be a Note section and "BOM" should be "byte order mark (BOM)."
+
+The YAML-formatted structured facts example has the same problem as the simpler external facts example: too many spaces before (and after) the colons. In addition, the keys `Use` and `Owner` are duplicated, the `Owner` array does not have a colon and its elements are not properly indented.
+
+It should be formatted:
+
+```yaml
+---
+Application: exampleapp
+Use: Production
+Owner:
+  - exampleorg
+  - anotherorg
+  - anotherapp
+...
+```
+
+#### Page 104
+
+However, the above formatting corrections do not account for the intended use of the structured facts in the subsequent paragraph:
+
+> This would allow us to call `facter application.exampleapp.owner` to retrieve an array of owners or to call `facter application.anotherapp` to receive the use and owner key pairs.
+
+:notebook: The the above paragraph, "the use and owner key pairs" should be formatted "the `Use` and `Owner` key pairs."
 
 ### Chapter 6
 
