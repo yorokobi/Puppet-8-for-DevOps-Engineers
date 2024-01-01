@@ -89,26 +89,31 @@ Owner: exampleorg
 
 :notebook: The paragraph about Windows line endings could be a Note section and "BOM" should be "byte order mark (BOM)."
 
-The YAML-formatted structured facts example has the same problem as the simpler external facts example: too many spaces before (and after) the colons. In addition, the keys `Use` and `Owner` are duplicated, the `Owner` array does not have a colon and its elements are not properly indented.
+The YAML-formatted structured fact example has the same problem as the simpler external facts example: too many spaces before (and after) the colons. In addition, as formatted the keys `Use` and `Owner` are duplicated, the `Owner` array does not have a colon and its elements are not properly indented.
 
-It should be formatted:
+In order for the `facter` commands on page 104 to work, it should be formatted as:
 
 ```yaml
 ---
-Application: exampleapp
-Use: Production
-Owner:
-  - exampleorg
-  - anotherorg
-  - anotherapp
+application:
+  exampleapp:
+    use: Production
+    owner:
+      - exampleorg
+      - anotherorg
+  anotherapp:
+    use: Production
+    owner: exampleorg
 ...
 ```
 
 ## Page 104
 
-However, the above formatting corrections do not account for the intended use of the structured facts in the subsequent paragraph:
+In the Bash shell example, the system calls to `pidof` and `ps` need to be surrounded by parentheses, not braces. In addition, the `ps -C` command does not return the percent CPU or memory used.
 
-> This would allow us to call `facter application.exampleapp.owner` to retrieve an array of owners or to call `facter application.anotherapp` to receive the use and owner key pairs.
-
-:notebook: The the above paragraph, "the use and owner key pairs" should be formatted "the `Use` and `Owner` key pairs."
-
+```bash
+#!/bin/bash
+echo "exampleapp_pid = $(pidof exampleapp)"
+echo "exampleapp_cpu_use = $(ps -C exampleapp) %cpu"
+echo "exampleapp_memory_use = $(ps -C exampleapp) %mem"
+```
