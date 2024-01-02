@@ -43,7 +43,7 @@ The sentence ending,
 
 > ... modules provide sharable and reusable single-use technical installations.
 
-should probably read,
+should read,
 
 > ... modules provide sharable and reusable single-use technical implementations.
 
@@ -83,7 +83,7 @@ The code example has two typos:
 
 should instead be,
 
-> Normally, this means a minimum of a development environment and a production environment so changes can be tested against servers in development and then successfully tested ones can be deployed to production.
+> Normally, this means a minimum of a development environment and a production environment to test changes against servers in development, with successfully tested ones subsequently deployed to production.
 
 ---
 

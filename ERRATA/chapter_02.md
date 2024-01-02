@@ -34,11 +34,7 @@ The sentence,
 
 can be written,
 
-> This is certainly not the only way to develop Puppet code and your organization might require using different tools, depending on the environment.
-
----
-
-The claim that PDK will be covered "in full" in chapter 8 is misleading as PDK is not covered "in full" in that chapter.
+> This is certainly not the only way to develop Puppet code and your organization may require using different tools.
 
 ---
 

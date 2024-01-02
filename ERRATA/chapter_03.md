@@ -8,7 +8,7 @@ Change the period between these sentences to a dash:
 
 can be written as,
 
-> ... and by looking at three of the most common resource types – packages, files, and services – you will see how to find out the attributes that are available to a resource and how to declare a state.
+> ... and by looking at three of the most common resource types--packages, files, and services--you will discover the attributes available to a resource and how to declare a state.
 
 ---
 
@@ -52,7 +52,7 @@ The sentence,
 
 > This example has its dangers since if the second declaration for `user2` also used a group of `group1`, this would result in a duplicated resource declaration.
 
-can be written to add emphasis the word 'also' to make it clear to the reader that this is a hypothetical situation and is not a comment on how the example code above it is written.
+can be written to add emphasis to the word 'also' to make it clear to the reader that this is a hypothetical situation and is not a comment on how the example code above it is written.
 
 Example,
 
@@ -99,7 +99,7 @@ The code example has one typo:
 
 ---
 
-:notebook: The example could be rewritten to use the `os.family` fact with 'Red Hat'. Updated formatting to match the Puppet style guide and stricter linting.
+:notebook: The example can rewritten to use the `os.family` fact with 'Red Hat', formatted to match the Puppet style guide, and comply with stricter linting.
 
 ```puppet
 $apache_package_name = $facts['os']['family']? {
@@ -122,7 +122,7 @@ package { 'apache':
 
 could be written,
 
-> This sets several attributes to defaults, resulting in using the default provider for the underlying operating system, such as yum or dnf for Red Hat or the windows provider for Windows ...
+> This sets several attributes to defaults, resulting in using the default provider for the underlying operating system, such as `yum` or `dnf` for Red Hat or the `windows` provider for Windows ...
 
 ---
 
@@ -130,7 +130,7 @@ could be written,
 
 The reference to `.bin` should instead be `.msi`.
 
-:notebook: Red Hat Enterprise Linux 8+ and distributions based on RHEL 8 cannot install the `cowsay` package without first enabling EPEL.
+Red Hat Enterprise Linux 8+ and distributions based on RHEL 8 cannot install the `cowsay` package without first enabling EPEL.
 
 ---
 
@@ -159,7 +159,9 @@ file { 'Puppet directory':
 
 ## Page 45
 
-The example `file` resource has hash rockets that are not aligned and the content had inconsistant spacing. It should be formatted as follows:
+The example `file` resource has hash rockets that are not aligned and the content has inconsistant spacing.
+
+It should be formatted as follows:
 
 ```puppet
 file { 'Example config':
@@ -177,7 +179,7 @@ The statement,
 
 > ... the comparative nature of Puppet, which uses `md5` checksums for content, ...
 
-As of Puppet 7, the default digest algorithm is SHA256 [PUP-10583](https://www.puppet.com/docs/puppet/7/release_notes_puppet.html#enhancements_puppet_7-0-0-pup-10583).
+As of Puppet 7, the default digest algorithm is SHA256. See [PUP-10583](https://www.puppet.com/docs/puppet/7/release_notes_puppet.html#enhancements_puppet_7-0-0-pup-10583).
 
 ---
 
@@ -244,7 +246,7 @@ The statement,
 
 Should read,
 
-> The replace parameter should be used sparingly, but if set to `false`, allows for a file to have content enforced only if it does not exist ...
+> Use the `replace` parameter sparingly. If set to `false` it allows a file to have content enforced only if it does not exist.
 
 From the [Puppet 8 documentation](https://www.puppet.com/docs/puppet/8/types/file.html#file-attribute-replace):
 
@@ -278,7 +280,7 @@ The statement,
 
 Should read (correct 'in system terms' to 'in `systemd` terms'),
 
-> Comparing this to `systemd`, the default provider for RHEL 8 and other Linux systems, we can see in the description under supported features that `systemctl` does not have delayed login or `manual` but does have `mask`, which, in `systemd` terms, means it disables the service so not even services that are dependent on it can activate it.
+> Comparing this to `systemd`, the default provider for RHEL 8 and other Linux systems, we see in the description under supported features that `systemctl` does not have delayed login or `manual` but does have `mask`, which, in `systemd` terms, means it disables the service so not even services that are dependent on it can activate it.
 
 ---
 
@@ -300,7 +302,7 @@ service { 'legacy service':
 
 ## Page 50
 
-There are two formatting corrections for the `metaparameters` code example. There is no comma after the package `name` attribute and the `service` resource is declared with a capitalized 'S' and lacks a space following the opening brace. It should be formatted as follows:
+There are two formatting corrections for the `metaparameters` code example. There is no comma after the package `name` attribute, the `service` resource is declared with a capitalized 'S' and lacks a space following the opening brace. It should be formatted as follows:
 
 ```puppet
 package { 'example app package':
@@ -354,7 +356,7 @@ http_port = 8080
 
 ## Page 52
 
-There are a number of formatting errors in the closing paragraph under the sub heading "User and group types".
+There is a formatting error in the closing paragraph under the sub heading "User and group types".
 
 `<name of computer\<user name>`
 

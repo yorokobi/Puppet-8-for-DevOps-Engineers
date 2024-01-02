@@ -10,6 +10,8 @@ Functions mentioned outside of code blocks should be formatted **function_name()
 
 :notebook: The use of "will be discussed in full in Chapter *X*" is ... inaccurate. Remove "in full" or replace with "in detail."
 
+:notebook: Replace passive voice with active voice. Most of the suggested edits employ active voice.
+
 - [Chapter 01](ERRATA/chapter_01.md)
 - [Chapter 02](ERRATA/chapter_02.md)
 - [Chapter 03](ERRATA/chapter_03.md)
@@ -25,3 +27,4 @@ Functions mentioned outside of code blocks should be formatted **function_name()
 - [Chapter 13](ERRATA/chapter_13.md)
 - [Chapter 14](ERRATA/chapter_14.md)
 - [Chapter 15](ERRATA/chapter_15.md)
+

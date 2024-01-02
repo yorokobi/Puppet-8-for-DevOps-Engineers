@@ -18,7 +18,7 @@ The two commas surrounding "with legacy facts" are not necessary or should follo
 
 May instead be formatted (and passive voice removed):
 
-> These variables are accessed in Puppet manifests in two ways – either directly by the name of the fact on a global variable or via the `$facts` array.
+> These variables are accessed in Puppet manifests in two ways: either directly by the name of the fact on a global variable or via the `$facts` array.
 
 ---
 
@@ -28,15 +28,17 @@ The sentence,
 
 Refers to the `os.family` fact as `os family` and calls them variables instead of facts. It should be,
 
-> For example, in the following code, the notify resources would access the `kernel` and `os.family` facts and print logging messages containing the kernel and os family of the host it was run on:
+> For example, in the following code, the `notify` resources access the `kernel` and `os.family` facts and output messages containing the kernel and OS family of the host it was run on:
 
 ---
 
-The subsequent code example does not properly refer to elements of the `$facts` hash, lacking the single quoted hash keys as well as the closing brace for the `os.family` fact reference. It should be formatted:
+The subsequent code example does not properly refer to elements of the `$facts` hash, lacking single quoted hash keys as well as the closing brace for the `os.family` fact.
+
+It should be formatted:
 
 ```puppet
 notify { "This client's kernel is ${facts['kernel']}": }
-notify { "This client is a member of the os family ${facts['os']['family']}": }
+notify { "This client is a member of the OS family ${facts['os']['family']}": }
 ```
 
 ---
@@ -67,9 +69,11 @@ The conclusion of the note at the top of the page does not need the word "basis.
 
 The sentence,
 
-> In Chapter 8, you will learn how external facts can be distributed to clients from modules via the plugin sync process, where facts are added from modules contained in a `facts.d` folder within the module.
+> In *Chapter 8*, you will learn how external facts can be distributed to clients from modules via the plugin sync process, where facts are added from modules contained in a `facts.d` folder within the module.
 
 Can be simplified by removing ", where facts are added from modules contained."
+
+> In *Chapter 8*, you will learn how external facts can be distributed to clients from modules via the plugin sync process contained in a `facts.d` folder within the module.
 
 ---
 
@@ -81,11 +85,11 @@ In the note,
 
 The use of "while" should be "with." For example, with passive voice removed:
 
-> Puppet can run as a non-root user on UNIX-based systems with external facts stored in `~/.facter/facts.d/`.
+> Running Puppet as a non-root user on UNIX-based systems is possible with external facts stored in `~/.facter/facts.d/`.
 
 ---
 
-The YAML-formatted external facts example does not pass `yamllint` due to too many spaces before and, in the case of `Application`, after the colons. It should be formatted:
+The YAML-formatted external facts example does not pass `yamllint` due to too many spaces before and--in the case of `Application`--after the colons. It should be formatted:
 
 ```yaml
 ---
@@ -97,7 +101,7 @@ Owner: exampleorg
 
 ---
 
-:notebook: The JSON-formatted external facts is easier to read when formatted as:
+:notebook: JSON-formatted external facts are easier to read when formatted as:
 
 ```json
 {
@@ -113,7 +117,7 @@ Owner: exampleorg
 
 ---
 
-The YAML-formatted structured fact example has the same problem as the simpler external facts example: too many spaces before (and after) the colons. In addition, as formatted the keys `Use` and `Owner` are duplicated, the `Owner` array does not have a colon and its elements are not properly indented.
+The YAML-formatted structured facts example has the same problem as the simpler external facts example: too many spaces before (and after) the colons. In addition, the keys `Use` and `Owner` are duplicated, the `Owner` array does not have a colon and its elements are not properly indented.
 
 In order for the `facter` commands on page 104 to work, it should be formatted as:
 
@@ -162,17 +166,17 @@ Write-Output "exampleapp_mem=$((Get-Process explorer).pm)"
 
 > Custom facts are Ruby code that sets facts and expand on the core Facter facts. The main advantage of using custom facts over external facts are the built-in mechanisms.
 >
-> In this section, you will learn how custom facts allows you to access the value of other facts, how you can have multiple weighted resolutions, and how to use `confine` to ensure only certain nodes will attempt to run the fact.
+> In this section, you will learn how custom facts allow you to access the value of other facts, how you can have multiple weighted resolutions, and how to use `confine` to ensure only certain nodes will attempt to run the fact.
 
 ---
 
 :notebook: The second paragraph can be rewritten as,
 
-> It is beyond the scope of this book to dive deeper into the details of Ruby, but we will show its basic structure and some of its core libraries to give you enough of a head start to research them further.
+> It is beyond the scope of this book to dive deeper into the details of Ruby, but we will show its basic structure and some of its core libraries give you enough of a head start to research them further.
 
 ---
 
-:notebook: In the Ruby examples that output `exampleapp --version` it should be noted that the full path to the `exampleapp` binary should be provided.
+:notebook: In the Ruby examples that output `exampleapp --version` the full path to the `exampleapp` binary should be provided.
 
 ---
 
@@ -186,7 +190,7 @@ In the paragraph that references the  `os.arch` fact, there is a period missing 
 
 It should be,
 
-> It can be useful to call the value of another fact into a variable. The following code will put the `os.arch` fact into the `$arch` variable:
+> It can be useful to place the value of another fact into a variable. The following code puts the `os.arch` fact into the `$arch` variable:
 
 ---
 
@@ -315,13 +319,13 @@ Is innacurate as both are not exclusively prefix functions. This qualifier also 
 
 The final sentence in the same paragraph does not refer to the variable names as variables. It should be formatted,
 
-> In the following example, the variable `$highest_number` would contain 88, while `$lowest_letter` would contain 'a':
+> In the following example, the variable `$highest_number` returns 88, while `$lowest_letter` returns 'a':
 
 ---
 
 In the paragraph with the following sentence, the references to variables is inconsistent. It should be formatted as,
 
-> In the following examples, the `$empty_array` and `$empty_string` would contain `true`, while the `$nonempty_string` variable would contain `false`:
+> In the following examples, the `$empty_array` and `$empty_string` return `true`, while the `$nonempty_string` variable returns `false`:
 
 ---
 
@@ -339,26 +343,19 @@ $nonempty_string = 'not_empty'.empty()
 
 In the sentence ending the paragraph for the `compare()` function, the word "casing" should be "case."
 
-> For two strings, a third Boolean argument can be used to check whether the comparison should ignore case.
+> For two strings, use a third Boolean argument to check whether the comparison should ignore case.
 
 ---
 
-The paragraph for the `compare()` function incorrectly states that the value of `$string_compare` is `1`. The example code actually returns `-1` regardless of the value of the case sensitive boolean option. 'A' (0x41) always comes before 'b' (0x62); as does 'a' (0x61) before 'b'.
-
-As written,
-
-```puppet
-$numeric_compare = compare(5, 6)
-$string_compare = compare('A', 'b', false)
-```
+The paragraph for the `compare()` function incorrectly states that the value of `$string_compare` is `1`. The example code actually returns `-1` regardless of the value of the case sensitive boolean option. 'A' (0x41) always comes before 'b' (0x62); as does 'a' (0x61).
 
 A more precise example,
 
 ```puppet
-$numeric_compare = compare(5, 6)             # -1
-$string_compare_1 = compare('a', 'A', false) # -1
-$string_compare0 = compare('a', 'A', true)   #  0
-$string_compare1 = compare('b', 'a', false)  #  1
+$numeric_compare = compare(5, 6)                # -1
+$string_compare_neg1 = compare('a', 'A', false) # -1
+$string_compare0 = compare('a', 'A', true)      #  0
+$string_compare1 = compare('b', 'a', false)     #  1
 ```
 
 ---
@@ -427,7 +424,7 @@ The code example creates a hash variable, `$usersids` then iterates with the `ea
 
 Should be,
 
-> ... In *Chapter 7*, we will cover templates in more detail, but the `template()` and `epp()` functions allow the respective ERB and EPP formats for templates to be used via the `content` attribute of the `file` resource.
+> ... While *Chapter 7* covers templates in more detail, know that the `template()` and `epp()` functions allow the use of ERB and EPP formats for templates via the `content` attribute of the `file` resource.
 
 ---
 
@@ -476,25 +473,25 @@ The output of the `join()` function within the statement,
 
 Is incorrect. The correct output is:
 
-> ... would print `{"London"=>["bromley", "brentford"]}@@Berlin@@Falkirk@@Grangemouth`
+> ... outputs `{"London"=>["bromley", "brentford"]}@@Berlin@@Falkirk@@Grangemouth`
 
 ---
 
-In the conclusion to the paragraph about the `join()` function and nested hashes,
+:notebook: In the conclusion to the paragraph about the `join()` function and nested hashes,
 
 > ... because the first element of the array is a hash and it won’t be flattened despite it containing a hash:
 
 Can be written to remove the redundant element:
 
-> ... because the first element of the array is a hash and it won’t be flattened:
+> ... because the first element of the array is a hash it won’t be flattened:
 
 ---
 
-In the output that concludes the paragraph for the `keys()` and `values()` functions is missing a quote for 'Amsterdam.'
+The output that concludes the paragraph for the `keys()` and `values()` functions is missing a quote for 'Amsterdam.'
 
 It should be:
 
-> ... while the next two would print an array of `['Berlin', 'Amsterdam']`:
+> ... while the next two output an array of `['Berlin', 'Amsterdam']`:
 
 ---
 
@@ -531,3 +528,68 @@ As with the `intersection()` function, the text states that both `union()` and `
 The output in the paragraph for the `range()` function uses 'starttrek8', which should be 'startrek8' (one too many 't's).
 
 ---
+
+## Page 123
+
+The code example for `start_with()` and `end_with()` do not have an underscore separating the words of the function and use 'starts' and 'ends' rather than 'start' and 'end'.
+
+It should be formatted:
+
+```puppet
+$truestart = 'server1234'.start_with('server')
+$falseend = 'wales'.end_with('land')
+$trueoptions = 'aws104'.start_with['gcp','az','aws']
+```
+
+---
+
+The code example under the "Lab" heading references the `os.family` fact as a single element of the `$facts` hash rather than their separate entities. It is also missing spaces surrounding the `else` statement.
+
+It should be formatted,
+
+```puppet
+if $facts['os']['family'] == 'windows' {
+}
+else {
+}
+```
+
+---
+
+## Page 124
+
+The code example under the "Deferred functions" heading lacks proper indentation and uses double quotes instead of single quotes in the second argument to the `Deferrerd()` function.
+
+It should be formatted,
+
+```puppet
+user { 'exampleapp':
+  password => Deferred('vault_lookup::lookup', ['exampleapp/password'])
+}
+```
+
+---
+
+## Page 125
+
+The code example using two `notify` resources has extra whitespace, uses double quotes for the array argument, and is missing the closing brace for the `${deferred}` variable in a string.
+
+It should be formatted,
+
+```puppet
+$deferred = Deferred('vault_lookup::lookup', ['exampleapp/message'])
+
+notify { 'this will return the object name':
+  message => "Secret message is ${deferred}",
+}
+
+notify { 'this will return the message':
+  message => $deferred,
+}
+```
+
+---
+
+## Page 126
+
+:notebook: The use of "dependency hell" at the end of the "Summary" is not a great choice of words. "Circular dependencies" is a better choice for Puppet dependency problems.

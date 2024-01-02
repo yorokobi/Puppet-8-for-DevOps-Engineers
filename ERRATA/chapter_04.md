@@ -8,7 +8,7 @@ In the Note at the beginning of the page, the statement,
 
 Should read,
 
-> We are simplifying the process slightly here as there are now deferred functions that can run after compilations.
+> We are simplifying the process slightly here as there are now deferred functions that run after compilations.
 
 ---
 
@@ -88,7 +88,7 @@ The statement,
 
 Should be,
 
-> For example, to extract the fourth character of a string variable, you would use an index of 3 (since indexing starts at 0).
+> For example, to extract the fourth character of a string variable, use an index of 3 (since indexing starts at 0).
 
 Likewise, the sentence with,
 
@@ -96,7 +96,7 @@ Likewise, the sentence with,
 
 Should be,
 
-> ... and you want to extract a substring that starts at the fourth character and includes the next five characters ...
+> ... and to extract a substring that starts at the fourth character and includes the next five characters ...
 
 ---
 
@@ -112,7 +112,7 @@ notify { "${example_string[-4,-1]}": }
 
 It should be,
 
-> This would return the substring that starts at the fourth character from the end (which corresponds to the letter 'r' in 'substring') and includes the next three characters, which in this case would be 'ing'.
+> This returns the substring that starts at the fourth character from the end (which corresponds to the letter 'r' in 'substring') and includes the next three characters, which in this case are 'ing'.
 
 ---
 
@@ -130,7 +130,7 @@ notify { "${example_string[-4,4]}": }
 
 Should be,
 
-> This would return the substring that starts at the fourth character from the end (which corresponds to the letter 'r' in 'substring') and includes the next three characters, which in this case would be 'ring'.
+> This returns the substring that starts at the fourth character from the end (which corresponds to the letter 'r' in 'substring') and includes the next three characters, which in this case are 'ring'.
 
 ---
 
@@ -139,9 +139,9 @@ The code example for "... package names, application versions, or other consiste
 ```puppet
 $hostname = flkoraprd00034
 $location = $hostname[0,3] # flk
-$role = $hostname[3,3] # ora
-$env = $hostname[6,3] # prd
-$id = $hostname[-5,5] # 00034
+$role = $hostname[3,3]     # ora
+$env = $hostname[6,3]      # prd
+$id = $hostname[-5,5]      # 00034
 ```
 
 It should also be noted that the variable `$environment` is reserved and refers to the Puppet environment. I have taken the liberty of changing the variable in the example to `$env`.
@@ -154,7 +154,7 @@ It should also be noted that the variable `$environment` is reserved and refers 
 
 Should be formatted with a monospace font and capitalized,
 
-> The default for the minimum is 0 and the maximum is infinity. To use the default implicitly, you can use the default unquoted `String` keyword.
+> The default for the minimum is 0 and the maximum is infinity. To use the default implicitly, use the default unquoted `String` keyword.
 
 ---
 
@@ -185,11 +185,11 @@ The example `$hex = 0x` assigns an invalid number to the `$hex` variable. It sho
 
 ## Page 78
 
-:notebook: It should be noted that BODMAS is a region-specific (UK) acronym whereas other regions have different conventions: PEMDAS in the United States or BEDMAS in Canada, for example. What one region calls a bracket, another calls a parenthesis.
+:notebook: Keep in mind that BODMAS is a region-specific (UK) acronym whereas other regions have different conventions: PEMDAS in the United States or BEDMAS in Canada, for example. What one region calls a bracket, another calls a parenthesis.
 
 ---
 
-:notebook: I believe 'modulo' should be removed and substitute 'order of operation' for 'priority' in the sentence,
+:notebook: I believe 'modulo' should be removed and substituted with 'order of operation' for 'priority' in the sentence,
 
 > Shifts are essentially treated as multiplication and modulo division in this priority.
 
@@ -199,7 +199,7 @@ The example `$hex = 0x` assigns an invalid number to the `$hex` variable. It sho
 
 > Any operations between an integer and a float will result in a float and an operation on an integer, which would result in a float being rounded down to an integer.
 
-The use of 'which would' here should probably be changed to 'will':
+Change 'which would' here to 'will':
 
 ... on an integer will result in ...
 
@@ -209,7 +209,9 @@ However, the sentence is unclear as to the outcome of integer and float operatio
 
 ## Page 79
 
-:notebook: The code example at the top of the page may be easier to read with spaces surrounding the equal symbols. It could be formatted as,
+:notebook: The code example at the top of the page is easier to read with spaces surrounding the equal symbols.
+
+It should be formatted as,
 
 ```puppet
 $string_integer = '1'
@@ -248,13 +250,13 @@ notify { "Print ${test1}": }
 
 > The only value an `undef` data type has is the unquoted `undef` and it is not used for parameter data typing by itself. This is because enforcing the absence of a value would have no purpose.
 
-Could be written,
+Should be written,
 
 > The value of an `undef` data type is the unquoted keyword `undef` and it is not used for parameter data typing by itself; enforcing the absence of a value has no purpose.
 
 ---
 
-The code example for the boolean class `exampleapp` is missing the `$` variable prefix for `$manage_users`.
+The code example for the Boolean class `exampleapp` is missing the `$` variable prefix for `$manage_users`.
 
 It should be formatted:
 
@@ -293,7 +295,7 @@ $mixed_example_array = [ 1, $example_boolean, 'example' ]
 In the "Accessing an array index" code example, there is a space between the variable `$second_index` and the index `[1]`. It should be formatted as:
 
 ```puppet
-$example_array = [ 'first','second','third' ]
+$example_array = [ 'first', 'second', 'third' ]
 $second_index = $example_arrary[1]
 ```
 
@@ -311,7 +313,7 @@ The sentence at the end of the page is incomplete. It may be sufficient to simpl
 
 > You mustn’t put any spacing between the square bracket and the variable name; otherwise, it will be interpreted as a variable and the square brackets will be separate.
 
-Could be written as,
+Should be written as,
 
 > Any whitespace between the variable name and the opening square bracket will result in a syntax error.
 
@@ -357,17 +359,17 @@ notify {"Print ${nested_array[1][0]}":}
 
 Should either be written to refer to the *second* element,
 
-> For example, the following `notify` resource will print the second element of `$nested_array`:
+> For example, the following `notify` resource outputs the second element of `$nested_array`:
 
-Or the code example changed thus to refer to the first element:
+Or the code example changed to refer to the first element:
 
 ```puppet
 notify { "Print ${nested_array[0][0]}": }
 ```
 
-If the intent was to demonstrate that the `notify` resource will print the first element of the *nested* array, it should be written as,
+If the intent was to demonstrate that the `notify` resource outputs the first element of the *nested* array, it should be written as,
 
-> For example, the following `notify` resource will print the first element of the nested array:
+> For example, the following `notify` resource outputs the first element of the nested array:
 
 With the corrected code referring to index `[1][0]`.
 
@@ -375,7 +377,7 @@ With the corrected code referring to index `[1][0]`.
 
 ## Page 84
 
-In the paragraph under the *Append* heading, the number '3' should be the string `'three'`,
+In the paragraph under the "Append" heading, the number '3' should be the string `'three'`,
 
 > To demonstrate this, let’s look at an example of an array with integers 1 and 2 as elements that appends ~~3~~ `'three'` into a new array.
 
@@ -438,9 +440,9 @@ The paragraph under the "Assigning hashes" heading has several typos.
 
 Should be,
 
-> Hashes are written as comma separated key-value pairs where values are assigned to keys with `=>` and the list is surrounded by curly braces, `{ }`. A trailing comma should be added after the last pair, but this is not a style recommended by this book.
+> Hashes are written as comma separated key-value pairs where values are assigned to keys with `=>` and the list is surrounded by curly braces, `{ }`. A trailing comma should be added after the last pair.
 >
-> For example, the following hash can be declared to assign the `make` key with the `'skoda'` string, the `model` key with the `'rapid'` string, and the `year` key with the `2014` integer:
+> For example, the following declaring hash to assign the `make` key with the string `'skoda'`, the `model` key with the string `'rapid'`, and the `year` key with the integer `2014`:
 
 ---
 
@@ -523,7 +525,7 @@ The first sentence under the heading "Mixing hashes and arrays" should drop the 
 
 Should be:
 
-> Since the value of a hash key or an array element can be any data type, nesting can be performed.
+> Nesting is possible because the value of a hash key or an array element can be any data type.
 
 ---
 
@@ -648,7 +650,7 @@ Are redundant restatements of the sentences preceding them.
 
 Should be written,
 
-> The first notify resource prints '`Print override`', showing that the local variable '`global`' has overridden the global value.
+> The first notify resource outputs '`Print override`', showing that the local variable '`global`' has overridden the global value.
 
 Thus making the scope of the `global` variable more clear.
 
@@ -658,33 +660,21 @@ Thus making the scope of the `global` variable more clear.
 
 Should be,
 
-> The third notify resource prints '`Print mynode`' ...
+> The third notify resource outputs '`Print mynode`' ...
 
 ---
 
 In the sentence,
 
-> In the '`also_local`' class, we define a new variable called '`another_global`' with a string value of '`another world`'.
+> In the '`also_local`' class, we define a new variable called `'another_global'` with a string value of '`another world`'.
 
-Neither the variable `$another_global` nor the value `another world` are used.
+Neither the variable `$another_global` nor the value `'another world'` are used.
 
 ---
 
 :notebook: The example code uses the variable `$node`, which is a reserved word. While it is allowed, it should be avoided.
 
-The example code for the `local` class:
-
-```puppet
-class local
-{
-$global = 'override'
-  notify {"Print ${global}":}
-  notify {"Print ${::global}":}
-  notify {"Print ${node}":}
-}
-```
-
-Should be formatted,
+The example code for the `local` class should be formatted,
 
 ```puppet
 class local {
@@ -703,7 +693,7 @@ The use of "After" to begin the sentence,
 
 > After, we reviewed how Puppet variables can be declared at different scopes and how variables can be shared/seen in different scopes.
 
-Should instead be "Finally" as it is the final summary element.
+Should instead be "Finally."
 
 ---
 
