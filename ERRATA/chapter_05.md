@@ -295,7 +295,7 @@ In the paragraph that begins,
 
 > This differs from the examples this book has used up till now, particularly with the notify resource used in the previous chapter’s examples.
 
-The apostrophe for "chapter's" should be "chapters' to indicate multiple chapters, not a single chapter".
+The apostrophe for "chapter's" should be "chapters'" to indicate multiple chapters, not a single chapter.
 
 ---
 
@@ -447,7 +447,7 @@ file { '/etc/ntp.conf':
 
 ---
 
-The code example for the `dig()` function should also be formatted for legibility. In addition,the first key, `exampleapp_pids` is missing the 'a' in 'example', the value for the `user` key is not quoted, the `notify` resource does not have a `$` prefix for `exampleapp_proc.dig()`, and the reference to `124` in the `dig()` function is an `Integer` and, therefore, should not be quoted.
+The code example for the `dig()` function should also be formatted for legibility. In addition, `exampleapp_pids` is missing the 'a' in 'example', the value for the `user` key is not quoted, the `notify` resource does not have a `$` prefix for `exampleapp_proc.dig()`, and the reference to `124` in the `dig()` function is an `Integer` and, therefore, should not be quoted.
 
 It should be formatted,
 
