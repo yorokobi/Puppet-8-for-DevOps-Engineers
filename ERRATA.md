@@ -4,13 +4,13 @@ Entries with :notebook: are my opinion.
 
 ## Entire book
 
-There are many references to `=>` but it is not called a 'hash rocket' until page 161--and then only once. Given that 'hash rocket' is a common term for this combination of symbols, the use of the name should be used much earlier and more frequently.
+:notebook: Replace passive voice with active voice. Most of the suggested edits employ active voice.
 
-Functions mentioned outside of code blocks should be formatted **function_name()** (with empty parenthesis). Likewise, all variable names should be prefixed with **$**.
+:notebook: There are many references to `=>` but it is not called a 'hash rocket' until page 161--and then only once. Given that 'hash rocket' is a common term for this combination of symbols, the use of the name should be used much earlier and more frequently.
+
+Functions mentioned outside of code blocks should be formatted `function_name()` (with empty parenthesis). Likewise, all variable names should be prefixed with `$`.
 
 :notebook: The use of "will be discussed in full in Chapter *X*" is ... inaccurate. Remove "in full" or replace with "in detail."
-
-:notebook: Replace passive voice with active voice. Most of the suggested edits employ active voice.
 
 - [Chapter 01](ERRATA/chapter_01.md)
 - [Chapter 02](ERRATA/chapter_02.md)
