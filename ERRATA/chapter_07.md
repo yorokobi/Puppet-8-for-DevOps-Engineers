@@ -22,11 +22,11 @@ There is no function `epp_template()` as mentioned in the sentence,
 
 > Later in this section, it will be seen how to pass a hash to the `epp_template` function when referencing it.
 
-The EPP template functions are `epp()` and `incline_epp()`.
+The EPP template functions are `epp()` and `inline_epp()`.
 
 ---
 
-In the code examples on pages 148 and 149, I would replace `-%>` with `%>` to preserve the line ending.
+:notebook: In the code examples on pages 148 and 149, I would replace `-%>` with `%>` to preserve the line ending.
 
 ```puppet
 application = <%= $facts[application_name] -%>
@@ -263,5 +263,7 @@ For Lab 2, the following should be bullet points and use fewer quotes.
 
 > “This is a < os family > machine running version < os release full > ““The following directories are in the path < list each path >”
 
-> - “This is a < os.family > machine running version < os.release.full >
-> - “The following directories are in the path: < list each path >”
+Should be,
+
+> - "This is a < os.family > machine running version < os.release.full >"
+> - "The following directories are in the path: < list each path >"
