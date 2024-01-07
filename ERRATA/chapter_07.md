@@ -74,7 +74,7 @@ file { '/etc/exampleapp.conf':
 
 ---
 
-The Hashicorp Vault code example also has misaligned hash rockets, uses double quotes for `'secret/exampleapp` (which is also mispelled), and should employ multiple lines for the `epp()` parameters as well as for the `$vault_keypair` hash.
+The Hashicorp Vault code example also has misaligned hash rockets, uses double quotes for `'secret/exampleapp'` (which is also mispelled), and should employ multiple lines for the `epp()` parameters as well as for the `$vault_keypair` hash.
 
 It should be formatted,
 
