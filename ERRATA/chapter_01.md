@@ -84,7 +84,6 @@ The code example has two typos:
 should instead be,
 
 > Normally, this means a minimum of a development environment and a production environment to test changes against servers in development, with successfully tested ones subsequently deployed to production.
-
 ---
 
 :notebook: The reference to the latest version of Puppet should be changed from 7 to 8. All installation URIs appear to use Puppet 8 even though the Azure lab installs Puppet 7.
